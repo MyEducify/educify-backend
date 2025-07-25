@@ -1,0 +1,24 @@
+V |                      | ArgumentsFromParametersFile.OnBuildCreated (150)
+V |                      | HandleReSharperSurrogateArguments.OnBuildCreated (150)
+V |                      | InjectParameterValues.OnBuildCreated (100)
+V |                      | HandleShellCompletion.OnBuildCreated (75)
+V |                      | GenerateBuildServerConfigurations.OnBuildCreated (50)
+V |                      | InvokeBuildServerConfigurationGeneration.OnBuildCreated (45)
+V |                      | UpdateNotification.OnBuildCreated (10)
+V |                      | UnsetVisualStudioEnvironmentVariables.OnBuildCreated (0)
+V |                      | HandleVisualStudioDebugging.OnBuildCreated (0)
+V |                      | EventInvoker.OnBuildCreated (-3.4028235E+38)
+V |                      | Target-unrelated exception was thrown
+System.Exception: Target with name 'CompileAll' does not exist. Available targets are:
+  - BuildAuthService
+  - BuildShared
+  - Clean
+  - Compile
+  - Restore
+   at Nuke.Common.Assert.Fail(String message, Exception exception) in /_/source/Nuke.Utilities/Assert.cs:line 28
+   at Nuke.Common.Execution.ExecutionPlanner.GetExecutableTarget(String targetName, IReadOnlyCollection`1 executableTargets) in /_/source/Nuke.Build/Execution/ExecutionPlanner.cs:line 107
+   at Nuke.Common.Execution.ExecutionPlanner.<>c__DisplayClass0_0.<GetExecutionPlan>b__0(String x) in /_/source/Nuke.Build/Execution/ExecutionPlanner.cs:line 24
+   at System.Linq.Enumerable.SelectArrayIterator`2.Fill(ReadOnlySpan`1 source, Span`1 destination, Func`2 func)
+   at System.Linq.Enumerable.SelectArrayIterator`2.ToList()
+   at Nuke.Common.Execution.ExecutionPlanner.GetExecutionPlan(IReadOnlyCollection`1 executableTargets, IReadOnlyCollection`1 invokedTargetNames) in /_/source/Nuke.Build/Execution/ExecutionPlanner.cs:line 24
+   at Nuke.Common.Execution.BuildManager.Execute[T](Expression`1[] defaultTargetExpressions)
