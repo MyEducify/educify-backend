@@ -1,0 +1,151 @@
+23:11:02.070 | V |                      | ArgumentsFromParametersFile.OnBuildCreated (150)
+23:11:02.089 | V |                      | HandleReSharperSurrogateArguments.OnBuildCreated (150)
+23:11:02.090 | V |                      | InjectParameterValues.OnBuildCreated (100)
+23:11:02.111 | V |                      | HandleShellCompletion.OnBuildCreated (75)
+23:11:02.423 | V |                      | GenerateBuildServerConfigurations.OnBuildCreated (50)
+23:11:02.424 | V |                      | InvokeBuildServerConfigurationGeneration.OnBuildCreated (45)
+23:11:02.434 | V |                      | UpdateNotification.OnBuildCreated (10)
+23:11:02.434 | V |                      | UnsetVisualStudioEnvironmentVariables.OnBuildCreated (0)
+23:11:02.434 | V |                      | HandleVisualStudioDebugging.OnBuildCreated (0)
+23:11:02.440 | V |                      | EventInvoker.OnBuildCreated (-3.4028235E+38)
+23:11:02.455 | V |                      | HandlePlanRequests.OnBuildInitialized (10)
+23:11:02.455 | V |                      | HandleHelpRequests.OnBuildInitialized (5)
+23:11:02.456 | V |                      | Telemetry.OnBuildInitialized (0)
+23:11:02.973 | V |                      | Sending BuildStarted telemetry event ...
+23:11:02.975 | V |                      |   build_components         = 
+23:11:02.975 | V |                      |   build_type               = Project
+23:11:02.976 | V |                      |   compile_time             = 4
+23:11:02.976 | V |                      |   config_generators        = 
+23:11:02.976 | V |                      |   host                     = Terminal
+23:11:02.976 | V |                      |   num_custom_components    = 0
+23:11:02.976 | V |                      |   num_custom_extensions    = 0
+23:11:02.976 | V |                      |   num_partitioned_targets  = 0
+23:11:02.976 | V |                      |   num_secrets              = 0
+23:11:02.976 | V |                      |   num_targets              = 5
+23:11:02.976 | V |                      |   os_architecture          = X64
+23:11:02.976 | V |                      |   os_platform              = Windows
+23:11:02.976 | V |                      |   repo_branch              = <null>
+23:11:02.976 | V |                      |   repo_commit              = edc411
+23:11:02.976 | V |                      |   repo_provider            = GitHub
+23:11:02.976 | V |                      |   repo_url                 = 051460
+23:11:02.976 | V |                      |   target_framework         = .NETCoreApp,Version=v8.0
+23:11:02.976 | V |                      |   version_dotnet_sdk       = 8.0.403
+23:11:02.976 | V |                      |   version_nuke_common      = 9.0.4
+23:11:02.976 | V |                      |   version_nuke_global_tool = 9.0.4
+23:11:03.954 | V |                      | InjectNonParameterValues.OnBuildInitialized (-100)
+23:11:03.994 | V |                      | EventInvoker.OnBuildInitialized (-3.4028235E+38)
+23:11:04.004 | V | Restore              | EventInvoker.OnTargetRunning (-3.4028235E+38)
+23:11:04.032 | I | Restore              | > "C:\Program Files\dotnet\dotnet.exe" restore D:\test\project\educify-backend\MonoRepo.sln
+23:11:04.037 | V | Restore              | @ D:\test\project\educify-backend
+23:11:04.715 | D | Restore              |   Determining projects to restore...
+23:11:05.036 | D | Restore              |   All projects are up-to-date for restore.
+23:11:05.071 | V | Restore              | Telemetry.OnTargetSucceeded (0)
+23:11:05.200 | V | Restore              | Sending TargetSucceeded telemetry event ...
+23:11:05.200 | V | Restore              |   build_components         = 
+23:11:05.200 | V | Restore              |   build_type               = Project
+23:11:05.200 | V | Restore              |   compile_time             = 6
+23:11:05.200 | V | Restore              |   config_generators        = 
+23:11:05.200 | V | Restore              |   host                     = Terminal
+23:11:05.200 | V | Restore              |   num_custom_components    = 0
+23:11:05.200 | V | Restore              |   num_custom_extensions    = 0
+23:11:05.200 | V | Restore              |   num_partitioned_targets  = 0
+23:11:05.200 | V | Restore              |   num_secrets              = 0
+23:11:05.201 | V | Restore              |   num_targets              = 5
+23:11:05.201 | V | Restore              |   os_architecture          = X64
+23:11:05.201 | V | Restore              |   os_platform              = Windows
+23:11:05.201 | V | Restore              |   repo_branch              = <null>
+23:11:05.201 | V | Restore              |   repo_commit              = edc411
+23:11:05.201 | V | Restore              |   repo_provider            = GitHub
+23:11:05.201 | V | Restore              |   repo_url                 = 051460
+23:11:05.201 | V | Restore              |   target_current_partition = 1
+23:11:05.201 | V | Restore              |   target_duration          = 1
+23:11:05.201 | V | Restore              |   target_framework         = .NETCoreApp,Version=v8.0
+23:11:05.201 | V | Restore              |   target_name              = Restore
+23:11:05.201 | V | Restore              |   target_total_partitions  = 1
+23:11:05.201 | V | Restore              |   version_dotnet_sdk       = 8.0.403
+23:11:05.201 | V | Restore              |   version_nuke_common      = 9.0.4
+23:11:05.201 | V | Restore              |   version_nuke_global_tool = 9.0.4
+23:11:05.792 | V | Restore              | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
+23:11:05.799 | V | BuildShared          | EventInvoker.OnTargetRunning (-3.4028235E+38)
+23:11:05.825 | I | BuildShared          | > "C:\Program Files\dotnet\dotnet.exe" build D:\test\project\educify-backend\shared\Database\Database.csproj --configuration Debug --no-restore
+23:11:05.826 | V | BuildShared          | @ D:\test\project\educify-backend
+23:11:06.616 | D | BuildShared          |   Database -> D:\test\project\educify-backend\shared\Database\bin\Debug\net8.0\Database.dll
+23:11:06.625 | D | BuildShared          | 
+23:11:06.626 | D | BuildShared          | Build succeeded.
+23:11:06.626 | D | BuildShared          |     0 Warning(s)
+23:11:06.626 | D | BuildShared          |     0 Error(s)
+23:11:06.627 | D | BuildShared          | 
+23:11:06.627 | D | BuildShared          | Time Elapsed 00:00:00.59
+23:11:06.647 | D | BuildShared          | 
+23:11:06.648 | D | BuildShared          | Workload updates are available. Run `dotnet workload list` for more information.
+23:11:06.668 | I | BuildShared          | > "C:\Program Files\dotnet\dotnet.exe" build D:\test\project\educify-backend\shared\Utils\Utils.csproj --configuration Debug --no-restore
+23:11:06.668 | V | BuildShared          | @ D:\test\project\educify-backend
+23:11:07.431 | D | BuildShared          |   Utils -> D:\test\project\educify-backend\shared\Utils\bin\Debug\net8.0\Utils.dll
+23:11:07.440 | D | BuildShared          | 
+23:11:07.441 | D | BuildShared          | Build succeeded.
+23:11:07.441 | D | BuildShared          |     0 Warning(s)
+23:11:07.441 | D | BuildShared          |     0 Error(s)
+23:11:07.441 | D | BuildShared          | 
+23:11:07.442 | D | BuildShared          | Time Elapsed 00:00:00.59
+23:11:07.459 | D | BuildShared          | 
+23:11:07.460 | D | BuildShared          | Workload updates are available. Run `dotnet workload list` for more information.
+23:11:07.480 | I | BuildShared          | > "C:\Program Files\dotnet\dotnet.exe" build D:\test\project\educify-backend\shared\Models\Models.csproj --configuration Debug --no-restore
+23:11:07.480 | V | BuildShared          | @ D:\test\project\educify-backend
+23:11:08.267 | D | BuildShared          |   Models -> D:\test\project\educify-backend\shared\Models\bin\Debug\net8.0\Models.dll
+23:11:08.276 | D | BuildShared          | 
+23:11:08.277 | D | BuildShared          | Build succeeded.
+23:11:08.277 | D | BuildShared          |     0 Warning(s)
+23:11:08.277 | D | BuildShared          |     0 Error(s)
+23:11:08.278 | D | BuildShared          | 
+23:11:08.278 | D | BuildShared          | Time Elapsed 00:00:00.61
+23:11:08.296 | D | BuildShared          | 
+23:11:08.296 | D | BuildShared          | Workload updates are available. Run `dotnet workload list` for more information.
+23:11:08.316 | I | BuildShared          | > "C:\Program Files\dotnet\dotnet.exe" build D:\test\project\educify-backend\shared\Services\Services.csproj --configuration Debug --no-restore
+23:11:08.317 | V | BuildShared          | @ D:\test\project\educify-backend
+23:11:09.088 | D | BuildShared          |   Services -> D:\test\project\educify-backend\shared\Services\bin\Debug\net8.0\Services.dll
+23:11:09.098 | D | BuildShared          | 
+23:11:09.098 | D | BuildShared          | Build succeeded.
+23:11:09.099 | D | BuildShared          |     0 Warning(s)
+23:11:09.099 | D | BuildShared          |     0 Error(s)
+23:11:09.099 | D | BuildShared          | 
+23:11:09.100 | D | BuildShared          | Time Elapsed 00:00:00.59
+23:11:09.118 | D | BuildShared          | 
+23:11:09.118 | D | BuildShared          | Workload updates are available. Run `dotnet workload list` for more information.
+23:11:09.143 | I | BuildShared          | > "C:\Program Files\dotnet\dotnet.exe" build D:\test\project\educify-backend\shared\Monitoring\Monitoring.csproj --configuration Debug --no-restore
+23:11:09.143 | V | BuildShared          | @ D:\test\project\educify-backend
+23:11:09.931 | D | BuildShared          |   Monitoring -> D:\test\project\educify-backend\shared\Monitoring\bin\Debug\net8.0\Monitoring.dll
+23:11:09.941 | D | BuildShared          | 
+23:11:09.942 | D | BuildShared          | Build succeeded.
+23:11:09.942 | D | BuildShared          |     0 Warning(s)
+23:11:09.942 | D | BuildShared          |     0 Error(s)
+23:11:09.943 | D | BuildShared          | 
+23:11:09.943 | D | BuildShared          | Time Elapsed 00:00:00.60
+23:11:09.960 | D | BuildShared          | 
+23:11:09.960 | D | BuildShared          | Workload updates are available. Run `dotnet workload list` for more information.
+23:11:09.979 | V | BuildShared          | Telemetry.OnTargetSucceeded (0)
+23:11:09.979 | V | BuildShared          | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
+23:11:09.982 | V | BuildAuthService     | EventInvoker.OnTargetRunning (-3.4028235E+38)
+23:11:09.985 | I | BuildAuthService     | > "C:\Program Files\dotnet\dotnet.exe" build D:\test\project\educify-backend\services\AuthService\AuthService.csproj --configuration Debug --no-restore
+23:11:09.986 | V | BuildAuthService     | @ D:\test\project\educify-backend
+23:11:10.854 | D | BuildAuthService     |   Services -> D:\test\project\educify-backend\shared\Services\bin\Debug\net8.0\Services.dll
+23:11:10.866 | D | BuildAuthService     |   Monitoring -> D:\test\project\educify-backend\shared\Monitoring\bin\Debug\net8.0\Monitoring.dll
+23:11:10.867 | D | BuildAuthService     |   Models -> D:\test\project\educify-backend\shared\Models\bin\Debug\net8.0\Models.dll
+23:11:10.868 | D | BuildAuthService     |   Utils -> D:\test\project\educify-backend\shared\Utils\bin\Debug\net8.0\Utils.dll
+23:11:10.970 | D | BuildAuthService     |   Database -> D:\test\project\educify-backend\shared\Database\bin\Debug\net8.0\Database.dll
+23:11:11.273 | D | BuildAuthService     |   AuthService -> D:\test\project\educify-backend\services\AuthService\bin\Debug\net8.0\AuthService.dll
+23:11:11.296 | D | BuildAuthService     | 
+23:11:11.297 | D | BuildAuthService     | Build succeeded.
+23:11:11.297 | D | BuildAuthService     |     0 Warning(s)
+23:11:11.297 | D | BuildAuthService     |     0 Error(s)
+23:11:11.298 | D | BuildAuthService     | 
+23:11:11.298 | D | BuildAuthService     | Time Elapsed 00:00:01.10
+23:11:11.308 | D | BuildAuthService     | 
+23:11:11.308 | D | BuildAuthService     | Workload updates are available. Run `dotnet workload list` for more information.
+23:11:11.330 | V | BuildAuthService     | Telemetry.OnTargetSucceeded (0)
+23:11:11.330 | V | BuildAuthService     | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
+23:11:11.332 | V | Clean                | EventInvoker.OnTargetRunning (-3.4028235E+38)
+23:11:11.334 | V | Clean                | Telemetry.OnTargetSucceeded (0)
+23:11:11.334 | V | Clean                | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
+23:11:11.340 | V |                      | UpdateNotification.OnBuildFinished (10)
+23:11:11.340 | V |                      | SerializeBuildServerState.OnBuildFinished (0)
+23:11:11.340 | V |                      | EventInvoker.OnBuildFinished (-3.4028235E+38)
