@@ -1,10 +1,14 @@
-using System;
+﻿using System;
 using System.IO;
+using Serilog;
 using Nuke.Common;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
+using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
+using System.Collections.Generic;
+using Nuke.Common.Tools.Docker;
 
 class Build : NukeBuild
 {
@@ -12,12 +16,23 @@ class Build : NukeBuild
 
     [Solution] readonly Solution Solution;
 
-    [Parameter("Configuration to build - Debug or Release")]
+    [Parameter("Build configuration - Debug or Release")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
+
+    [Parameter("Target environment - dev, staging, production")]
+    readonly string Env = "dev";
+
+    string DotNetEnvironment => Env.ToLower() switch
+    {
+        "dev" => "Development",
+        "staging" => "Staging",
+        "production" => "Production",
+        _ => throw new Exception($"Unsupported environment: {Env}")
+    };
 
     AbsolutePath SourceDir => RootDirectory / "services";
     AbsolutePath SharedDir => RootDirectory / "shared";
-    AbsolutePath OutputDir => RootDirectory / "output";
+    AbsolutePath OutputDir => RootDirectory / "output" / Env;
 
     AbsolutePath AuthServiceProj => SourceDir / "AuthService" / "AuthService.csproj";
     AbsolutePath DatabaseProj => SharedDir / "Database" / "Database.csproj";
@@ -25,6 +40,14 @@ class Build : NukeBuild
     AbsolutePath ModelsProj => SharedDir / "Models" / "Models.csproj";
     AbsolutePath ServicesProj => SharedDir / "Services" / "Services.csproj";
     AbsolutePath MonitoringProj => SharedDir / "Monitoring" / "Monitoring.csproj";
+
+    Target LogEnvironment => _ => _
+        .Executes(() =>
+        {
+
+            Log.Information($"🌍 Building for environment: {DotNetEnvironment}");
+            Log.Information($"📦 Configuration: {Configuration}");
+        });
 
     Target Clean => _ => _
         .Executes(() =>
@@ -78,9 +101,44 @@ class Build : NukeBuild
             DotNetBuild(s => s
                 .SetProjectFile(AuthServiceProj)
                 .SetConfiguration(Configuration)
-                .EnableNoRestore());
+                .EnableNoRestore()
+                .SetOutputDirectory(OutputDir)
+                .SetProcessEnvironmentVariable("ASPNETCORE_ENVIRONMENT", DotNetEnvironment));
         });
 
+    Target GenerateEnv => _ => _
+    .Executes(() =>
+    {
+
+        var services = new[] { "AuthService" };
+        foreach (var serviceName in services)
+        {
+            var sourceRoot = RootDirectory / ".environments" / serviceName;
+            var targetRoot = RootDirectory / "services" / serviceName;
+
+            var envMap = new Dictionary<string, string>
+            {
+                ["dev"] = "Development",
+                ["stage"] = "Staging",
+                ["prod"] = "Production"
+            };
+
+
+            if (!envMap.ContainsKey(Env.ToLower()))
+                Log.Information($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+
+            var suffix = envMap[Env.ToLower()];
+            var sourceFile = sourceRoot / Env.ToLower() / "appsettings.json";
+            var targetFile = targetRoot / $"appsettings.json";
+            if (!File.Exists(sourceFile))
+                Log.Information($"❌ Missing source: {sourceFile}");
+
+            File.Copy(sourceFile, targetFile, true);
+            Serilog.Log.Information($"✅ Copied: {targetFile}");
+        }
+
+    });
+
     Target Compile => _ => _
-        .DependsOn(Clean, BuildAuthService);
+        .DependsOn(LogEnvironment, Clean, BuildAuthService);
 }
