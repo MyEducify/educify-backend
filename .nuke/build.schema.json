@@ -28,6 +28,8 @@
         "BuildShared",
         "Clean",
         "Compile",
+        "GenerateEnv",
+        "LogEnvironment",
         "Restore"
       ]
     },
@@ -104,11 +106,15 @@
       "properties": {
         "Configuration": {
           "type": "string",
-          "description": "Configuration to build - Debug or Release",
+          "description": "Build configuration - Debug or Release",
           "enum": [
             "Debug",
             "Release"
           ]
+        },
+        "Env": {
+          "type": "string",
+          "description": "Target environment - dev, staging, production"
         },
         "Solution": {
           "type": "string",
