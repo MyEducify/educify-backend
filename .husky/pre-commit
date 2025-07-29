@@ -3,8 +3,8 @@
 
 echo "🧼 Auto-formatting staged C# files..."
 
-# Get list of staged C# files
-FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.cs$')
+# Get list of staged C# files (handle CRLF issues)
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.cs$' | tr -d '\r')
 
 if [ -z "$FILES" ]; then
   echo "✅ No C# files to format."
@@ -13,10 +13,12 @@ fi
 
 FORMAT_FAILED=false
 
-# Run format and re-stage
 for file in $FILES; do
   echo "🔧 Formatting $file"
+
+  # Run formatter and suppress output
   dotnet format --include "$file" --folder > /dev/null 2>&1
+
   if [ $? -eq 0 ]; then
     git add "$file"
   else
