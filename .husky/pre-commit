@@ -1,12 +1,20 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-
 echo "🧼 Auto-formatting uncommitted C# files..."
 
+# Get list of staged C# files
 FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.cs$')
-if [ -n "$FILES" ]; then
-  dotnet format --include $FILES
-  git add $FILES
+
+if [ -z "$FILES" ]; then
+  echo "✅ No C# files to format."
+  exit 0
 fi
-echo "✅ All files properly formatted."
+
+# Format each file and stage it if it changed
+for file in $FILES; do
+  dotnet format --include "$file" --folder --verify-no-changes || true
+  git add "$file"
+done
+
+echo "✅ Formatting complete and files re-staged."
