@@ -16,7 +16,7 @@ if (string.IsNullOrWhiteSpace(commitMessage))
 }
 
 // ✅ Example rule: must start with feat:, fix:, chore:, or refactor:
-var allowedPrefixes = new[] { "feat:", "fix:", "chore:", "refactor:" };
+var allowedPrefixes = new[] { "feat:", "fix:", "chore:", "refactor:", "merge" };
 
 if (!allowedPrefixes.Any(p => commitMessage.StartsWith(p, StringComparison.OrdinalIgnoreCase)))
 {
