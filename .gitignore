@@ -60,3 +60,5 @@ nunit-*.xml
 # igonore enviroments
 .enviroments
 
+# Ignore Visual Studio folder
+.vs/
