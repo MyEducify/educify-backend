@@ -18,8 +18,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,14 +32,10 @@
               "RelativeDocumentMoniker": "services\\AuthService\\Program.cs",
               "ToolTip": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\Program.cs",
               "RelativeToolTip": "services\\AuthService\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACcAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABwAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-29T08:15:52.871Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
@@ -47,8 +47,7 @@
               "RelativeToolTip": "build\\Build.cs",
               "ViewState": "AgIAADwAAAAAAAAAAAAUwGAAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-27T06:23:29.862Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-27T06:23:29.862Z"
             }
           ]
         }
