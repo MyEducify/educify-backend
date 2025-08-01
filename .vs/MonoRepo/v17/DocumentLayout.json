@@ -3,28 +3,32 @@
   "WorkspaceRootPath": "D:\\Test\\Project\\educify-backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|d:\\test\\project\\educify-backend\\services\\authservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|solutionrelative:services\\authservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{9ABF001E-2285-4B47-AF43-4E9E89D6CD69}|shared\\Database\\Database.csproj|d:\\test\\project\\educify-backend\\shared\\database\\dbcontext\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ABF001E-2285-4B47-AF43-4E9E89D6CD69}|shared\\Database\\Database.csproj|solutionrelative:shared\\database\\dbcontext\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|d:\\test\\project\\educify-backend\\services\\authservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|solutionrelative:services\\authservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76B2A107-1B32-410D-8FAB-82140B5536CD}|shared\\Utils\\Utils.csproj|d:\\test\\project\\educify-backend\\shared\\utils\\objectutil\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{76B2A107-1B32-410D-8FAB-82140B5536CD}|shared\\Utils\\Utils.csproj|solutionrelative:shared\\utils\\objectutil\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9ABF001E-2285-4B47-AF43-4E9E89D6CD69}|shared\\Database\\Database.csproj|d:\\test\\project\\educify-backend\\shared\\database\\databaseserviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ABF001E-2285-4B47-AF43-4E9E89D6CD69}|shared\\Database\\Database.csproj|solutionrelative:shared\\database\\databaseserviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|d:\\test\\project\\educify-backend\\services\\authservice\\authservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|solutionrelative:services\\authservice\\authservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|d:\\test\\project\\educify-backend\\services\\authservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|solutionrelative:services\\authservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A0CDEE-73A2-469A-AEB0-484291E1EDF4}|shared\\cache\\cache.csproj|d:\\test\\project\\educify-backend\\shared\\cache\\redis\\irediscacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A0CDEE-73A2-469A-AEB0-484291E1EDF4}|shared\\cache\\cache.csproj|solutionrelative:shared\\cache\\redis\\irediscacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53A0CDEE-73A2-469A-AEB0-484291E1EDF4}|shared\\cache\\cache.csproj|d:\\test\\project\\educify-backend\\shared\\cache\\redis\\rediscacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53A0CDEE-73A2-469A-AEB0-484291E1EDF4}|shared\\cache\\cache.csproj|solutionrelative:shared\\cache\\redis\\rediscacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53A0CDEE-73A2-469A-AEB0-484291E1EDF4}|shared\\cache\\cache.csproj|d:\\test\\project\\educify-backend\\shared\\cache\\redis\\irediscacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53A0CDEE-73A2-469A-AEB0-484291E1EDF4}|shared\\cache\\cache.csproj|solutionrelative:shared\\cache\\redis\\irediscacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9ABF001E-2285-4B47-AF43-4E9E89D6CD69}|shared\\Database\\Database.csproj|d:\\test\\project\\educify-backend\\shared\\database\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ABF001E-2285-4B47-AF43-4E9E89D6CD69}|shared\\Database\\Database.csproj|solutionrelative:shared\\database\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53A0CDEE-73A2-469A-AEB0-484291E1EDF4}|shared\\cache\\cache.csproj|d:\\test\\project\\educify-backend\\shared\\cache\\redis\\redisserviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,6 +37,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{53A0CDEE-73A2-469A-AEB0-484291E1EDF4}|shared\\cache\\cache.csproj|d:\\test\\project\\educify-backend\\shared\\cache\\cacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53A0CDEE-73A2-469A-AEB0-484291E1EDF4}|shared\\cache\\cache.csproj|solutionrelative:shared\\cache\\cacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76B2A107-1B32-410D-8FAB-82140B5536CD}|shared\\Utils\\Utils.csproj|d:\\test\\project\\educify-backend\\shared\\utils\\objectutil\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76B2A107-1B32-410D-8FAB-82140B5536CD}|shared\\Utils\\Utils.csproj|solutionrelative:shared\\utils\\objectutil\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9ABF001E-2285-4B47-AF43-4E9E89D6CD69}|shared\\Database\\Database.csproj|d:\\test\\project\\educify-backend\\shared\\database\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ABF001E-2285-4B47-AF43-4E9E89D6CD69}|shared\\Database\\Database.csproj|solutionrelative:shared\\database\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,7 +62,59 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\shared\\Database\\DbContext\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "shared\\Database\\DbContext\\AppDbContext.cs",
+              "ToolTip": "D:\\Test\\Project\\educify-backend\\shared\\Database\\DbContext\\AppDbContext.cs",
+              "RelativeToolTip": "shared\\Database\\DbContext\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T05:49:35.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\shared\\Database\\Repository\\Repository.cs",
+              "RelativeDocumentMoniker": "shared\\Database\\Repository\\Repository.cs",
+              "ToolTip": "D:\\Test\\Project\\educify-backend\\shared\\Database\\Repository\\Repository.cs",
+              "RelativeToolTip": "shared\\Database\\Repository\\Repository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T11:41:10.936Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\shared\\Database\\Repository\\IRepository.cs",
+              "RelativeDocumentMoniker": "shared\\Database\\Repository\\IRepository.cs",
+              "ToolTip": "D:\\Test\\Project\\educify-backend\\shared\\Database\\Repository\\IRepository.cs",
+              "RelativeToolTip": "shared\\Database\\Repository\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T11:40:49.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "DatabaseServiceExtensions.cs",
+              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\shared\\Database\\DatabaseServiceExtensions.cs",
+              "RelativeDocumentMoniker": "shared\\Database\\DatabaseServiceExtensions.cs",
+              "ToolTip": "D:\\Test\\Project\\educify-backend\\shared\\Database\\DatabaseServiceExtensions.cs",
+              "RelativeToolTip": "shared\\Database\\DatabaseServiceExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T11:39:44.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Utility.cs",
               "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\shared\\Utils\\ObjectUtil\\Utility.cs",
               "RelativeDocumentMoniker": "shared\\Utils\\ObjectUtil\\Utility.cs",
@@ -63,12 +127,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "CacheService.cs",
-              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\shared\\cache\\CacheService.cs",
-              "RelativeDocumentMoniker": "shared\\cache\\CacheService.cs",
-              "ToolTip": "D:\\Test\\Project\\educify-backend\\shared\\cache\\CacheService.cs",
-              "RelativeToolTip": "shared\\cache\\CacheService.cs",
+              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\shared\\Cache\\CacheService.cs",
+              "RelativeDocumentMoniker": "shared\\Cache\\CacheService.cs",
+              "ToolTip": "D:\\Test\\Project\\educify-backend\\shared\\Cache\\CacheService.cs",
+              "RelativeToolTip": "shared\\Cache\\CacheService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-31T08:46:55.4Z",
@@ -76,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "RedisServiceExtensions.cs",
               "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\shared\\Cache\\Redis\\RedisServiceExtensions.cs",
               "RelativeDocumentMoniker": "shared\\Cache\\Redis\\RedisServiceExtensions.cs",
@@ -89,25 +153,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "RedisCacheService.cs",
-              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\shared\\cache\\Redis\\RedisCacheService.cs",
-              "RelativeDocumentMoniker": "shared\\cache\\Redis\\RedisCacheService.cs",
-              "ToolTip": "D:\\Test\\Project\\educify-backend\\shared\\cache\\Redis\\RedisCacheService.cs",
-              "RelativeToolTip": "shared\\cache\\Redis\\RedisCacheService.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAA2wCIAAAAeAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\shared\\Cache\\Redis\\RedisCacheService.cs",
+              "RelativeDocumentMoniker": "shared\\Cache\\Redis\\RedisCacheService.cs",
+              "ToolTip": "D:\\Test\\Project\\educify-backend\\shared\\Cache\\Redis\\RedisCacheService.cs",
+              "RelativeToolTip": "shared\\Cache\\Redis\\RedisCacheService.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAUwCIAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-31T08:22:05.639Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "IRedisCacheService.cs",
-              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\shared\\cache\\Redis\\IRedisCacheService.cs",
-              "RelativeDocumentMoniker": "shared\\cache\\Redis\\IRedisCacheService.cs",
-              "ToolTip": "D:\\Test\\Project\\educify-backend\\shared\\cache\\Redis\\IRedisCacheService.cs",
-              "RelativeToolTip": "shared\\cache\\Redis\\IRedisCacheService.cs",
+              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\shared\\Cache\\Redis\\IRedisCacheService.cs",
+              "RelativeDocumentMoniker": "shared\\Cache\\Redis\\IRedisCacheService.cs",
+              "ToolTip": "D:\\Test\\Project\\educify-backend\\shared\\Cache\\Redis\\IRedisCacheService.cs",
+              "RelativeToolTip": "shared\\Cache\\Redis\\IRedisCacheService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-31T08:21:36.631Z",
@@ -116,25 +180,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AuthService.csproj",
-              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\AuthService.csproj",
-              "RelativeDocumentMoniker": "services\\AuthService\\AuthService.csproj",
-              "ToolTip": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\AuthService.csproj",
-              "RelativeToolTip": "services\\AuthService\\AuthService.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-31T06:44:03.289Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\appsettings.json",
               "RelativeDocumentMoniker": "services\\AuthService\\appsettings.json",
               "ToolTip": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\appsettings.json",
               "RelativeToolTip": "services\\AuthService\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-07-30T06:58:58.317Z",
               "EditorCaption": ""
@@ -147,7 +198,7 @@
               "RelativeDocumentMoniker": "services\\AuthService\\Program.cs",
               "ToolTip": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\Program.cs",
               "RelativeToolTip": "services\\AuthService\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAUwAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-29T08:15:52.871Z",
               "EditorCaption": ""
