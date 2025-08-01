@@ -1,8 +1,10 @@
 using Cache;
+using Database;
 using Redis;
 
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddRedis(builder.Configuration);
 
 // Add services to the container.

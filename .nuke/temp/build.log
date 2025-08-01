@@ -138,3 +138,46 @@
 13:02:06.993 | V |                      | UpdateNotification.OnBuildFinished (10)
 13:02:06.993 | V |                      | SerializeBuildServerState.OnBuildFinished (0)
 13:02:06.993 | V |                      | EventInvoker.OnBuildFinished (-3.4028235E+38)
+11:15:28.505 | V |                      | ArgumentsFromParametersFile.OnBuildCreated (150)
+11:15:28.519 | V |                      | HandleReSharperSurrogateArguments.OnBuildCreated (150)
+11:15:28.520 | V |                      | InjectParameterValues.OnBuildCreated (100)
+11:15:28.535 | V |                      | HandleShellCompletion.OnBuildCreated (75)
+11:15:28.818 | V |                      | GenerateBuildServerConfigurations.OnBuildCreated (50)
+11:15:28.818 | V |                      | InvokeBuildServerConfigurationGeneration.OnBuildCreated (45)
+11:15:28.827 | V |                      | UpdateNotification.OnBuildCreated (10)
+11:15:28.827 | V |                      | UnsetVisualStudioEnvironmentVariables.OnBuildCreated (0)
+11:15:28.827 | V |                      | HandleVisualStudioDebugging.OnBuildCreated (0)
+11:15:28.828 | V |                      | EventInvoker.OnBuildCreated (-3.4028235E+38)
+11:15:28.843 | V |                      | HandlePlanRequests.OnBuildInitialized (10)
+11:15:28.843 | V |                      | HandleHelpRequests.OnBuildInitialized (5)
+11:15:28.843 | V |                      | Telemetry.OnBuildInitialized (0)
+11:15:29.310 | V |                      | Sending BuildStarted telemetry event ...
+11:15:29.311 | V |                      |   build_components         = 
+11:15:29.311 | V |                      |   build_type               = Project
+11:15:29.311 | V |                      |   compile_time             = 7
+11:15:29.311 | V |                      |   config_generators        = 
+11:15:29.311 | V |                      |   host                     = Terminal
+11:15:29.311 | V |                      |   num_custom_components    = 0
+11:15:29.311 | V |                      |   num_custom_extensions    = 0
+11:15:29.311 | V |                      |   num_partitioned_targets  = 0
+11:15:29.311 | V |                      |   num_secrets              = 0
+11:15:29.311 | V |                      |   num_targets              = 7
+11:15:29.311 | V |                      |   os_architecture          = X64
+11:15:29.311 | V |                      |   os_platform              = Windows
+11:15:29.311 | V |                      |   repo_branch              = <null>
+11:15:29.311 | V |                      |   repo_commit              = 4459de
+11:15:29.311 | V |                      |   repo_provider            = GitHub
+11:15:29.311 | V |                      |   repo_url                 = 051460
+11:15:29.311 | V |                      |   target_framework         = .NETCoreApp,Version=v8.0
+11:15:29.311 | V |                      |   version_dotnet_sdk       = 8.0.403
+11:15:29.311 | V |                      |   version_nuke_common      = 9.0.4
+11:15:29.311 | V |                      |   version_nuke_global_tool = 9.0.4
+11:15:30.141 | V |                      | InjectNonParameterValues.OnBuildInitialized (-100)
+11:15:30.166 | V |                      | EventInvoker.OnBuildInitialized (-3.4028235E+38)
+11:15:30.174 | V | GenerateEnv          | EventInvoker.OnTargetRunning (-3.4028235E+38)
+11:15:30.179 | I | GenerateEnv          | ? Copied: D:\Test\Project\educify-backend\services\AuthService\appsettings.json
+11:15:30.185 | V | GenerateEnv          | Telemetry.OnTargetSucceeded (0)
+11:15:30.185 | V | GenerateEnv          | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
+11:15:30.192 | V |                      | UpdateNotification.OnBuildFinished (10)
+11:15:30.192 | V |                      | SerializeBuildServerState.OnBuildFinished (0)
+11:15:30.192 | V |                      | EventInvoker.OnBuildFinished (-3.4028235E+38)
