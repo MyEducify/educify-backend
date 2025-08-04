@@ -41,6 +41,7 @@ class Build : NukeBuild
     AbsolutePath ServicesProj => SharedDir / "Services" / "Services.csproj";
     AbsolutePath MonitoringProj => SharedDir / "Monitoring" / "Monitoring.csproj";
     AbsolutePath CacheProj => SharedDir / "cache" / "cache.csproj";
+    AbsolutePath MessageQueueProj => SharedDir / "Message-Queue" / "Message-Queue.csproj";
 
     Target LogEnvironment => _ => _
         .Executes(() =>
@@ -96,6 +97,10 @@ class Build : NukeBuild
 
             DotNetBuild(s => s
                 .SetProjectFile(CacheProj)
+                .SetConfiguration(Configuration)
+                .EnableNoRestore());
+            DotNetBuild(s => s
+                .SetProjectFile(MessageQueueProj)
                 .SetConfiguration(Configuration)
                 .EnableNoRestore());
         });
