@@ -1,0 +1,36 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🧼 Auto-formatting staged C# files..."
+
+# Get list of staged C# files (handle CRLF issues)
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.cs$' | tr -d '\r')
+
+if [ -z "$FILES" ]; then
+  echo "✅ No C# files to format."
+  exit 0
+fi
+
+FORMAT_FAILED=false
+
+for file in $FILES; do
+  echo "🔧 Formatting $file"
+
+  # Run formatter and suppress output
+  dotnet format --include "$file" --folder > /dev/null 2>&1
+
+  if [ $? -eq 0 ]; then
+    git add "$file"
+  else
+    FORMAT_FAILED=true
+  fi
+done
+
+if [ "$FORMAT_FAILED" = true ]; then
+  echo "❌ Some files were modified for formatting."
+  echo "ℹ️  Please re-stage and commit again."
+  exit 1
+fi
+
+echo "✅ Formatting complete and files re-staged."
+exit 0
