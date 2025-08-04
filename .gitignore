@@ -52,3 +52,13 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Ignore all environment-specific config files in any directory
+**/appsettings.json
+# nuke builds logs
+**/*.log
+# igonore enviroments
+.enviroments
+
+# Ignore Visual Studio folder
+.vs/
