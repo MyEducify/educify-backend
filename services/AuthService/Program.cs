@@ -1,11 +1,13 @@
 using Cache;
 using Database;
+using Message_Queue;
 using Redis;
 
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddRedis(builder.Configuration);
+builder.Services.AddRabbitMqServices(builder.Configuration);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

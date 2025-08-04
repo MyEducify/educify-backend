@@ -23,6 +23,7 @@
     <ProjectReference Include="..\..\shared\Services\Services.csproj" />
     <ProjectReference Include="..\..\shared\Monitoring\Monitoring.csproj" />
     <ProjectReference Include="..\..\shared\Cache\Cache.csproj" />
+	<ProjectReference Include="..\..\shared\Message-Queue\Message-Queue.csproj" />
   </ItemGroup>
 
   <ItemGroup>
