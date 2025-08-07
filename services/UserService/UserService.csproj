@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.71.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.10" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\cache\cache.csproj" />
+    <ProjectReference Include="..\..\shared\Database\Database.csproj" />
+    <ProjectReference Include="..\..\shared\Message-Queue\Message-Queue.csproj" />
+    <ProjectReference Include="..\..\shared\Microservice\Microservice.csproj" />
+    <ProjectReference Include="..\..\shared\Models\Models.csproj" />
+    <ProjectReference Include="..\..\shared\Monitoring\Monitoring.csproj" />
+    <ProjectReference Include="..\..\shared\Utils\Utils.csproj" />
+  </ItemGroup>
+
+</Project>
