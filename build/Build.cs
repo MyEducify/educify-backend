@@ -21,6 +21,8 @@ class Build : NukeBuild
 
     [Parameter("Target environment - dev, staging, production")]
     readonly string Env = "dev";
+    [Parameter("Service name for Docker build (e.g., AuthService, UserService)")]
+    readonly string Service;
 
     string DotNetEnvironment => Env.ToLower() switch
     {
@@ -35,6 +37,7 @@ class Build : NukeBuild
     AbsolutePath OutputDir => RootDirectory / "output" / Env;
 
     AbsolutePath AuthServiceProj => SourceDir / "AuthService" / "AuthService.csproj";
+    AbsolutePath UserServiceProj => SourceDir / "UserService" / "UserService.csproj";
     AbsolutePath DatabaseProj => SharedDir / "Database" / "Database.csproj";
     AbsolutePath UtilsProj => SharedDir / "Utils" / "Utils.csproj";
     AbsolutePath ModelsProj => SharedDir / "Models" / "Models.csproj";
@@ -43,6 +46,7 @@ class Build : NukeBuild
     AbsolutePath CacheProj => SharedDir / "cache" / "cache.csproj";
     AbsolutePath MessageQueueProj => SharedDir / "Message-Queue" / "Message-Queue.csproj";
     AbsolutePath MicroserviceProj => SharedDir / "Microservice" / "Microservice.csproj";
+    AbsolutePath Auth0Proj => SharedDir / "Auth0" / "Auth0.csproj";
 
     Target LogEnvironment => _ => _
         .Executes(() =>
@@ -110,6 +114,11 @@ class Build : NukeBuild
                 .SetProjectFile(MicroserviceProj)
                 .SetConfiguration(Configuration)
                 .EnableNoRestore());
+
+            DotNetBuild(s => s
+               .SetProjectFile(Auth0Proj)
+               .SetConfiguration(Configuration)
+               .EnableNoRestore());
         });
 
     Target BuildAuthService => _ => _
@@ -124,11 +133,23 @@ class Build : NukeBuild
                 .SetProcessEnvironmentVariable("ASPNETCORE_ENVIRONMENT", DotNetEnvironment));
         });
 
+    Target BuildUserService => _ => _
+      .DependsOn(BuildShared)
+      .Executes(() =>
+      {
+          DotNetBuild(s => s
+              .SetProjectFile(UserServiceProj)
+              .SetConfiguration(Configuration)
+              .EnableNoRestore()
+              .SetOutputDirectory(OutputDir)
+              .SetProcessEnvironmentVariable("ASPNETCORE_ENVIRONMENT", DotNetEnvironment));
+      });
+
     Target GenerateEnv => _ => _
     .Executes(() =>
     {
 
-        var services = new[] { "AuthService" };
+        var services = new[] { "AuthService", "UserService" };
         foreach (var serviceName in services)
         {
             var sourceRoot = RootDirectory / ".environments" / serviceName;
@@ -157,6 +178,50 @@ class Build : NukeBuild
 
     });
 
+    Target DockerBuild => _ => _
+    .Requires(() => Service)
+    .Executes(() =>
+    {
+        var dockerfilePath = SourceDir / Service / "Dockerfile";
+        if (!File.Exists(dockerfilePath))
+            throw new Exception($"❌ Dockerfile not found for service: {Service}");
+
+        Log.Information($"🐳 Building Docker image for service: {Service}");
+
+        DockerTasks.DockerBuild(s => s
+            .SetFile(dockerfilePath)
+            .SetPath(".")
+            .SetTag(Service.ToLower())
+            .SetNoCache(true));
+
+        Log.Information($"✅ Docker image built: {Service.ToLower()}");
+
+    });
+
+    Target DockerBuildAllServices => _ => _
+    .Executes(() =>
+        {
+            var services = new[] { "AuthService", "UserService" };
+            foreach (var service in services)
+            {
+                var dockerfilePath = SourceDir / service / "Dockerfile";
+
+                if (!File.Exists(dockerfilePath))
+                {
+                    Log.Warning($"⚠️ Skipping {service}, Dockerfile not found.");
+                    continue;
+                }
+
+                Log.Information($"🐳 Building Docker image for: {service}");
+
+                DockerTasks.DockerBuild(s => s
+                    .SetFile(dockerfilePath)
+                    .SetPath(".")
+                    .SetTag(service.ToLower())
+                    .SetNoCache(true));
+            }
+        });
+
     Target Compile => _ => _
-        .DependsOn(LogEnvironment, Clean, BuildAuthService);
+        .DependsOn(LogEnvironment, Clean, BuildAuthService, BuildUserService);
 }

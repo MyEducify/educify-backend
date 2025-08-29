@@ -9,17 +9,29 @@
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.71.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\shared\Auth0\Auth0.csproj" />
     <ProjectReference Include="..\..\shared\cache\cache.csproj" />
     <ProjectReference Include="..\..\shared\Database\Database.csproj" />
     <ProjectReference Include="..\..\shared\Message-Queue\Message-Queue.csproj" />
     <ProjectReference Include="..\..\shared\Microservice\Microservice.csproj" />
     <ProjectReference Include="..\..\shared\Models\Models.csproj" />
     <ProjectReference Include="..\..\shared\Monitoring\Monitoring.csproj" />
+    <ProjectReference Include="..\..\shared\Services\Services.csproj" />
     <ProjectReference Include="..\..\shared\Utils\Utils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Grpc\Protos\" />
   </ItemGroup>
 
 </Project>

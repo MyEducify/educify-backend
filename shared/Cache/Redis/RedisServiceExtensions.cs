@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Cache;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Redis
@@ -15,6 +16,8 @@ namespace Redis
                 options.InstanceName = "redis_instance:";
             });
             services.AddScoped<IRedisCacheService, RedisCacheService>();
+
+            services.AddScoped<ICacheService, CacheService>();
             return services;
         }
     }
