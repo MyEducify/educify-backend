@@ -107,6 +107,10 @@
   "allOf": [
     {
       "properties": {
+        "AcrName": {
+          "type": "string",
+          "description": "Azure Container Registry Name"
+        },
         "Configuration": {
           "type": "string",
           "description": "Build configuration - Debug or Release",
