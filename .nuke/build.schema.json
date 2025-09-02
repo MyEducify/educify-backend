@@ -31,6 +31,7 @@
         "Compile",
         "DockerBuild",
         "DockerBuildAllServices",
+        "DockerPush",
         "GenerateEnv",
         "LogEnvironment",
         "Restore"
@@ -107,6 +108,10 @@
   "allOf": [
     {
       "properties": {
+        "AcrName": {
+          "type": "string",
+          "description": "Azure Container Registry Name"
+        },
         "Configuration": {
           "type": "string",
           "description": "Build configuration - Debug or Release",
@@ -118,6 +123,10 @@
         "Env": {
           "type": "string",
           "description": "Target environment - dev, staging, production"
+        },
+        "ImageTag": {
+          "type": "string",
+          "description": "Docker Image Tag"
         },
         "Service": {
           "type": "string",

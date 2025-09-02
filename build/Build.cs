@@ -23,6 +23,10 @@ class Build : NukeBuild
     readonly string Env = "dev";
     [Parameter("Service name for Docker build (e.g., AuthService, UserService)")]
     readonly string Service;
+    [Parameter("Azure Container Registry Name")]
+    readonly string AcrName;
+    [Parameter("Docker Image Tag")]
+    readonly string ImageTag = "latest";
 
     string DotNetEnvironment => Env.ToLower() switch
     {
@@ -182,6 +186,28 @@ class Build : NukeBuild
     .Requires(() => Service)
     .Executes(() =>
     {
+        var sourceRoot = RootDirectory / ".environments" / Service;
+        var targetRoot = RootDirectory / "services" / Service;
+
+        var envMap = new Dictionary<string, string>
+        {
+            ["dev"] = "Development",
+            ["stage"] = "Staging",
+            ["prod"] = "Production"
+        };
+
+        if (!envMap.ContainsKey(Env.ToLower()))
+            Log.Information($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+
+        var suffix = envMap[Env.ToLower()];
+        var sourceFile = sourceRoot / Env.ToLower() / "appsettings.json";
+        var targetFile = targetRoot / $"appsettings.json";
+        if (!File.Exists(sourceFile))
+            Log.Information($"❌ Missing source: {sourceFile}");
+
+        File.Copy(sourceFile, targetFile, true);
+        Serilog.Log.Information($"✅ Copied: {targetFile}");
+
         var dockerfilePath = SourceDir / Service / "Dockerfile";
         if (!File.Exists(dockerfilePath))
             throw new Exception($"❌ Dockerfile not found for service: {Service}");
@@ -204,8 +230,29 @@ class Build : NukeBuild
             var services = new[] { "AuthService", "UserService" };
             foreach (var service in services)
             {
-                var dockerfilePath = SourceDir / service / "Dockerfile";
+                var sourceRoot = RootDirectory / ".environments" / service;
+                var targetRoot = RootDirectory / "services" / service;
 
+                var envMap = new Dictionary<string, string>
+                {
+                    ["dev"] = "Development",
+                    ["stage"] = "Staging",
+                    ["prod"] = "Production"
+                };
+
+                if (!envMap.ContainsKey(Env.ToLower()))
+                    Log.Information($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+
+                var suffix = envMap[Env.ToLower()];
+                var sourceFile = sourceRoot / Env.ToLower() / "appsettings.json";
+                var targetFile = targetRoot / $"appsettings.json";
+                if (!File.Exists(sourceFile))
+                    Log.Information($"❌ Missing source: {sourceFile}");
+
+                File.Copy(sourceFile, targetFile, true);
+                Serilog.Log.Information($"✅ Copied: {targetFile}");
+
+                var dockerfilePath = SourceDir / service / "Dockerfile";
                 if (!File.Exists(dockerfilePath))
                 {
                     Log.Warning($"⚠️ Skipping {service}, Dockerfile not found.");
@@ -221,6 +268,66 @@ class Build : NukeBuild
                     .SetNoCache(true));
             }
         });
+
+    Target DockerPush => _ => _
+     .Requires(() => Service)
+     .Requires(() => Env)
+     .Requires(() => AcrName)    // e.g., myregistry.azurecr.io
+     .Requires(() => ImageTag)
+     .Executes(() =>
+     {
+         var lowerService = Service.ToLowerInvariant();
+         var lowerEnv = Env.ToLowerInvariant();
+
+         var envMap = new Dictionary<string, string>
+         {
+             ["dev"] = "Development",
+             ["stage"] = "Staging",
+             ["prod"] = "Production"
+         };
+
+         if (!envMap.ContainsKey(lowerEnv))
+             throw new Exception($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+
+         // Copy environment-specific appsettings.json
+         var sourceFile = RootDirectory / ".environments" / Service / lowerEnv / "appsettings.json";
+         var targetFile = RootDirectory / "services" / Service / "appsettings.json";
+
+         if (!File.Exists(sourceFile))
+             throw new Exception($"❌ Missing source config: {sourceFile}");
+
+         File.Copy(sourceFile, targetFile, true);
+         Serilog.Log.Information($"✅ Copied env config to {targetFile}");
+
+         // Build full image name for ACR
+         var imageName = $"{AcrName}/{lowerService}-{Env}:{ImageTag}";
+         var dockerfilePath = RootDirectory / "services" / Service / "Dockerfile";
+
+         if (!File.Exists(dockerfilePath))
+             throw new Exception($"⚠️ Dockerfile not found for {Service} at {dockerfilePath}");
+
+         // Login to Azure ACR
+         var acrLoginName = AcrName.Split('.')[0]; // e.g. "myregistry" from "myregistry.azurecr.io"
+         ProcessTasks.StartProcess("az", $"acr login --name {acrLoginName}")
+             .AssertZeroExitCode();
+
+         // Build image directly with full ACR path
+         DockerTasks.DockerBuild(s => s
+             .SetPath(".")
+             .SetFile(dockerfilePath)
+             .SetTag(imageName)
+             .SetNoCache(true)
+         );
+
+         // Push image to ACR
+         DockerTasks.DockerPush(s => s
+             .SetName(imageName)
+         );
+
+         Serilog.Log.Information($"✅ Successfully pushed {imageName} to ACR [{envMap[lowerEnv]}]");
+     });
+
+
 
     Target Compile => _ => _
         .DependsOn(LogEnvironment, Clean, BuildAuthService, BuildUserService);
