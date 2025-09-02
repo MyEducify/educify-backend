@@ -1,44 +1,273 @@
-12:19:13.333 | V |                      | ArgumentsFromParametersFile.OnBuildCreated (150)
-12:19:13.366 | V |                      | HandleReSharperSurrogateArguments.OnBuildCreated (150)
-12:19:13.367 | V |                      | InjectParameterValues.OnBuildCreated (100)
-12:19:13.415 | V |                      | HandleShellCompletion.OnBuildCreated (75)
-12:19:14.175 | V |                      | GenerateBuildServerConfigurations.OnBuildCreated (50)
-12:19:14.176 | V |                      | InvokeBuildServerConfigurationGeneration.OnBuildCreated (45)
-12:19:14.189 | V |                      | UpdateNotification.OnBuildCreated (10)
-12:19:14.190 | V |                      | UnsetVisualStudioEnvironmentVariables.OnBuildCreated (0)
-12:19:14.190 | V |                      | HandleVisualStudioDebugging.OnBuildCreated (0)
-12:19:14.192 | V |                      | EventInvoker.OnBuildCreated (-3.4028235E+38)
-12:19:14.211 | V |                      | HandlePlanRequests.OnBuildInitialized (10)
-12:19:14.211 | V |                      | HandleHelpRequests.OnBuildInitialized (5)
-12:19:14.211 | V |                      | Telemetry.OnBuildInitialized (0)
-12:19:15.300 | V |                      | Sending BuildStarted telemetry event ...
-12:19:15.303 | V |                      |   build_components         = 
-12:19:15.303 | V |                      |   build_type               = Project
-12:19:15.303 | V |                      |   compile_time             = 8
-12:19:15.303 | V |                      |   config_generators        = 
-12:19:15.303 | V |                      |   host                     = Terminal
-12:19:15.303 | V |                      |   num_custom_components    = 0
-12:19:15.303 | V |                      |   num_custom_extensions    = 0
-12:19:15.303 | V |                      |   num_partitioned_targets  = 0
-12:19:15.303 | V |                      |   num_secrets              = 0
-12:19:15.303 | V |                      |   num_targets              = 10
-12:19:15.303 | V |                      |   os_architecture          = X64
-12:19:15.303 | V |                      |   os_platform              = Windows
-12:19:15.303 | V |                      |   repo_branch              = <null>
-12:19:15.303 | V |                      |   repo_commit              = 16ae62
-12:19:15.303 | V |                      |   repo_provider            = GitHub
-12:19:15.303 | V |                      |   repo_url                 = 051460
-12:19:15.303 | V |                      |   target_framework         = .NETCoreApp,Version=v8.0
-12:19:15.303 | V |                      |   version_dotnet_sdk       = 8.0.403
-12:19:15.303 | V |                      |   version_nuke_common      = 9.0.4
-12:19:15.303 | V |                      |   version_nuke_global_tool = 9.0.4
-12:19:15.903 | V |                      | InjectNonParameterValues.OnBuildInitialized (-100)
-12:19:15.932 | V |                      | EventInvoker.OnBuildInitialized (-3.4028235E+38)
-12:19:15.947 | V | GenerateEnv          | EventInvoker.OnTargetRunning (-3.4028235E+38)
-12:19:15.953 | I | GenerateEnv          | ✅ Copied: D:\Test\Project\educify-backend\services\AuthService\appsettings.json
-12:19:15.963 | I | GenerateEnv          | ✅ Copied: D:\Test\Project\educify-backend\services\UserService\appsettings.json
-12:19:15.965 | V | GenerateEnv          | Telemetry.OnTargetSucceeded (0)
-12:19:15.965 | V | GenerateEnv          | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
-12:19:15.974 | V |                      | UpdateNotification.OnBuildFinished (10)
-12:19:15.975 | V |                      | SerializeBuildServerState.OnBuildFinished (0)
-12:19:15.975 | V |                      | EventInvoker.OnBuildFinished (-3.4028235E+38)
+17:25:48.744 | V |                      | ArgumentsFromParametersFile.OnBuildCreated (150)
+17:25:48.761 | V |                      | HandleReSharperSurrogateArguments.OnBuildCreated (150)
+17:25:48.762 | V |                      | InjectParameterValues.OnBuildCreated (100)
+17:25:48.782 | V |                      | HandleShellCompletion.OnBuildCreated (75)
+17:25:49.054 | V |                      | GenerateBuildServerConfigurations.OnBuildCreated (50)
+17:25:49.054 | V |                      | InvokeBuildServerConfigurationGeneration.OnBuildCreated (45)
+17:25:49.064 | V |                      | UpdateNotification.OnBuildCreated (10)
+17:25:49.064 | V |                      | UnsetVisualStudioEnvironmentVariables.OnBuildCreated (0)
+17:25:49.064 | V |                      | HandleVisualStudioDebugging.OnBuildCreated (0)
+17:25:49.081 | V |                      | EventInvoker.OnBuildCreated (-3.4028235E+38)
+17:25:49.095 | V |                      | HandlePlanRequests.OnBuildInitialized (10)
+17:25:49.096 | V |                      | HandleHelpRequests.OnBuildInitialized (5)
+17:25:49.096 | V |                      | Telemetry.OnBuildInitialized (0)
+17:25:49.716 | V |                      | Sending BuildStarted telemetry event ...
+17:25:49.717 | V |                      |   build_components         = 
+17:25:49.718 | V |                      |   build_type               = Project
+17:25:49.718 | V |                      |   compile_time             = 4
+17:25:49.718 | V |                      |   config_generators        = 
+17:25:49.718 | V |                      |   host                     = Terminal
+17:25:49.718 | V |                      |   num_custom_components    = 0
+17:25:49.718 | V |                      |   num_custom_extensions    = 0
+17:25:49.718 | V |                      |   num_partitioned_targets  = 0
+17:25:49.718 | V |                      |   num_secrets              = 0
+17:25:49.718 | V |                      |   num_targets              = 11
+17:25:49.718 | V |                      |   os_architecture          = X64
+17:25:49.718 | V |                      |   os_platform              = Windows
+17:25:49.718 | V |                      |   repo_branch              = <null>
+17:25:49.718 | V |                      |   repo_commit              = 25f57f
+17:25:49.718 | V |                      |   repo_provider            = GitHub
+17:25:49.718 | V |                      |   repo_url                 = 051460
+17:25:49.718 | V |                      |   target_framework         = .NETCoreApp,Version=v8.0
+17:25:49.718 | V |                      |   version_dotnet_sdk       = 8.0.403
+17:25:49.718 | V |                      |   version_nuke_common      = 9.0.4
+17:25:49.718 | V |                      |   version_nuke_global_tool = 9.0.4
+17:25:50.342 | V |                      | InjectNonParameterValues.OnBuildInitialized (-100)
+17:25:50.386 | V |                      | EventInvoker.OnBuildInitialized (-3.4028235E+38)
+17:25:50.397 | V | DockerPush           | EventInvoker.OnTargetRunning (-3.4028235E+38)
+17:25:50.412 | I | DockerPush           | ✅ Copied env config to D:\Test\Project\educify-backend\services\AuthService\appsettings.json
+17:25:50.481 | I | DockerPush           | > "C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin\az.cmd" acr login --name educifyacr
+17:25:50.482 | V | DockerPush           | @ D:\Test\Project\educify-backend
+17:25:55.997 | D | DockerPush           | Login Succeeded
+17:25:56.353 | I | DockerPush           | > "C:\Program Files\Docker\Docker\resources\bin\docker.exe" build --file D:\Test\Project\educify-backend\services\AuthService\Dockerfile --tag educifyacr.azurecr.io/authservice:20250901 --no-cache .
+17:25:56.353 | V | DockerPush           | @ D:\Test\Project\educify-backend
+17:25:58.771 | D | DockerPush           | #0 building with "desktop-linux" instance using docker driver
+17:25:58.771 | D | DockerPush           | 
+17:25:58.772 | D | DockerPush           | #1 [internal] load build definition from Dockerfile
+17:25:58.772 | D | DockerPush           | #1 transferring dockerfile: 1.35kB 0.0s done
+17:25:58.772 | D | DockerPush           | #1 DONE 0.0s
+17:25:58.773 | D | DockerPush           | 
+17:25:58.773 | D | DockerPush           | #2 [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:8.0
+17:25:58.960 | D | DockerPush           | #2 DONE 0.3s
+17:25:58.961 | D | DockerPush           | 
+17:25:58.961 | D | DockerPush           | #3 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:8.0
+17:25:59.071 | D | DockerPush           | #3 DONE 0.4s
+17:25:59.072 | D | DockerPush           | 
+17:25:59.072 | D | DockerPush           | #4 [internal] load .dockerignore
+17:25:59.072 | D | DockerPush           | #4 transferring context: 2B done
+17:25:59.072 | D | DockerPush           | #4 DONE 0.0s
+17:25:59.073 | D | DockerPush           | 
+17:25:59.073 | D | DockerPush           | #5 [internal] load build context
+17:25:59.073 | D | DockerPush           | #5 DONE 0.0s
+17:25:59.073 | D | DockerPush           | 
+17:25:59.074 | D | DockerPush           | #6 [runtime 1/3] FROM mcr.microsoft.com/dotnet/aspnet:8.0@sha256:6d40ae71165cb8a4427477ae3b447b05c080330cabae08b0dae672552bcd34d8
+17:25:59.074 | D | DockerPush           | #6 resolve mcr.microsoft.com/dotnet/aspnet:8.0@sha256:6d40ae71165cb8a4427477ae3b447b05c080330cabae08b0dae672552bcd34d8 0.0s done
+17:25:59.074 | D | DockerPush           | #6 DONE 0.1s
+17:25:59.074 | D | DockerPush           | 
+17:25:59.074 | D | DockerPush           | #7 [build  1/16] FROM mcr.microsoft.com/dotnet/sdk:8.0@sha256:7fd287cec03e027e39be13fb06ca1347f1338c7a6ab4ad305d94d91852693f70
+17:25:59.074 | D | DockerPush           | #7 resolve mcr.microsoft.com/dotnet/sdk:8.0@sha256:7fd287cec03e027e39be13fb06ca1347f1338c7a6ab4ad305d94d91852693f70 0.1s done
+17:25:59.075 | D | DockerPush           | #7 DONE 0.1s
+17:25:59.179 | D | DockerPush           | 
+17:25:59.179 | D | DockerPush           | #8 [build  2/16] WORKDIR /src
+17:25:59.179 | D | DockerPush           | #8 CACHED
+17:25:59.180 | D | DockerPush           | 
+17:25:59.180 | D | DockerPush           | #9 [runtime 2/3] WORKDIR /app
+17:25:59.180 | D | DockerPush           | #9 CACHED
+17:25:59.180 | D | DockerPush           | 
+17:25:59.181 | D | DockerPush           | #5 [internal] load build context
+17:25:59.439 | D | DockerPush           | #5 transferring context: 611.07kB 0.2s done
+17:25:59.439 | D | DockerPush           | #5 DONE 0.3s
+17:25:59.439 | D | DockerPush           | 
+17:25:59.440 | D | DockerPush           | #10 [build  3/16] COPY [services/AuthService/AuthService.csproj, services/AuthService/]
+17:25:59.440 | D | DockerPush           | #10 DONE 0.1s
+17:25:59.617 | D | DockerPush           | 
+17:25:59.617 | D | DockerPush           | #11 [build  4/16] COPY [shared/Auth0/Auth0.csproj, shared/Auth0/]
+17:25:59.617 | D | DockerPush           | #11 DONE 0.1s
+17:25:59.618 | D | DockerPush           | 
+17:25:59.618 | D | DockerPush           | #12 [build  5/16] COPY [shared/Database/Database.csproj, shared/Database/]
+17:25:59.618 | D | DockerPush           | #12 DONE 0.1s
+17:25:59.800 | D | DockerPush           | 
+17:25:59.800 | D | DockerPush           | #13 [build  6/16] COPY [shared/Utils/Utils.csproj, shared/Utils/]
+17:25:59.800 | D | DockerPush           | #13 DONE 0.1s
+17:25:59.800 | D | DockerPush           | 
+17:25:59.801 | D | DockerPush           | #14 [build  7/16] COPY [shared/Models/Models.csproj, shared/Models/]
+17:25:59.801 | D | DockerPush           | #14 DONE 0.1s
+17:25:59.904 | D | DockerPush           | 
+17:25:59.904 | D | DockerPush           | #15 [build  8/16] COPY [shared/Services/Services.csproj, shared/Services/]
+17:25:59.905 | D | DockerPush           | #15 DONE 0.1s
+17:26:00.116 | D | DockerPush           | 
+17:26:00.117 | D | DockerPush           | #16 [build  9/16] COPY [shared/Monitoring/Monitoring.csproj, shared/Monitoring/]
+17:26:00.117 | D | DockerPush           | #16 DONE 0.1s
+17:26:00.117 | D | DockerPush           | 
+17:26:00.117 | D | DockerPush           | #17 [build 10/16] COPY [shared/cache/cache.csproj, shared/cache/]
+17:26:00.117 | D | DockerPush           | #17 DONE 0.1s
+17:26:00.220 | D | DockerPush           | 
+17:26:00.221 | D | DockerPush           | #18 [build 11/16] COPY [shared/Message-Queue/Message-Queue.csproj, shared/Message-Queue/]
+17:26:00.221 | D | DockerPush           | #18 DONE 0.1s
+17:26:00.346 | D | DockerPush           | 
+17:26:00.347 | D | DockerPush           | #19 [build 12/16] COPY [shared/Microservice/Microservice.csproj, shared/Microservice/]
+17:26:00.347 | D | DockerPush           | #19 DONE 0.1s
+17:26:00.515 | D | DockerPush           | 
+17:26:00.516 | D | DockerPush           | #20 [build 13/16] RUN dotnet restore "services/AuthService/AuthService.csproj"
+17:26:02.049 | D | DockerPush           | #20 1.698   Determining projects to restore...
+17:26:03.891 | D | DockerPush           | #20 3.541   Restored /src/shared/Models/Models.csproj (in 144 ms).
+17:26:03.891 | D | DockerPush           | #20 3.541   Restored /src/shared/Monitoring/Monitoring.csproj (in 144 ms).
+17:26:10.255 | D | DockerPush           | #20 9.905   Restored /src/shared/Message-Queue/Message-Queue.csproj (in 6.55 sec).
+17:26:10.424 | D | DockerPush           | #20 9.907   Restored /src/shared/Utils/Utils.csproj (in 6.54 sec).
+17:26:10.425 | D | DockerPush           | #20 9.910   Restored /src/shared/cache/cache.csproj (in 6.55 sec).
+17:26:10.425 | D | DockerPush           | #20 9.912   Restored /src/shared/Auth0/Auth0.csproj (in 6.55 sec).
+17:26:10.425 | D | DockerPush           | #20 9.912   Restored /src/shared/Services/Services.csproj (in 6.55 sec).
+17:26:10.425 | D | DockerPush           | #20 9.916   Restored /src/shared/Microservice/Microservice.csproj (in 6.55 sec).
+17:26:16.053 | D | DockerPush           | #20 15.70   Restored /src/shared/Database/Database.csproj (in 12.33 sec).
+17:26:21.278 | D | DockerPush           | #20 20.92   Restored /src/services/AuthService/AuthService.csproj (in 17.57 sec).
+17:26:24.376 | D | DockerPush           | #20 DONE 24.0s
+17:26:24.562 | D | DockerPush           | 
+17:26:24.563 | D | DockerPush           | #21 [build 14/16] COPY . .
+17:26:27.359 | D | DockerPush           | #21 DONE 3.0s
+17:26:27.561 | D | DockerPush           | 
+17:26:27.561 | D | DockerPush           | #22 [build 15/16] WORKDIR /src/services/AuthService
+17:26:27.807 | D | DockerPush           | #22 DONE 0.4s
+17:26:28.011 | D | DockerPush           | 
+17:26:28.011 | D | DockerPush           | #23 [build 16/16] RUN dotnet publish "AuthService.csproj" -c Release -o /app/publish /p:UseAppHost=false
+17:26:29.897 | D | DockerPush           | #23 2.047   Determining projects to restore...
+17:26:33.338 | D | DockerPush           | #23 5.489   Restored /src/shared/Models/Models.csproj (in 335 ms).
+17:26:33.511 | D | DockerPush           | #23 5.498   Restored /src/shared/Monitoring/Monitoring.csproj (in 335 ms).
+17:26:34.029 | D | DockerPush           | #23 6.180   Restored /src/shared/Message-Queue/Message-Queue.csproj (in 1.1 sec).
+17:26:34.252 | D | DockerPush           | #23 6.196   Restored /src/shared/Utils/Utils.csproj (in 1.13 sec).
+17:26:34.253 | D | DockerPush           | #23 6.205   Restored /src/shared/cache/cache.csproj (in 1.12 sec).
+17:26:34.253 | D | DockerPush           | #23 6.206   Restored /src/shared/Services/Services.csproj (in 1.13 sec).
+17:26:34.253 | D | DockerPush           | #23 6.219   Restored /src/shared/Auth0/Auth0.csproj (in 1.13 sec).
+17:26:34.253 | D | DockerPush           | #23 6.226   Restored /src/shared/Microservice/Microservice.csproj (in 1.13 sec).
+17:26:34.254 | D | DockerPush           | #23 6.238   Restored /src/shared/Database/Database.csproj (in 1.23 sec).
+17:26:34.254 | D | DockerPush           | #23 6.241   Restored /src/services/AuthService/AuthService.csproj (in 1.25 sec).
+17:26:34.845 | D | DockerPush           | #23 6.992 /usr/share/dotnet/sdk/8.0.413/Current/Microsoft.Common.props(74,3): warning MSB4011: "/src/shared/cache/obj/Cache.csproj.nuget.g.props" cannot be imported again. It was already imported at "/usr/share/dotnet/sdk/8.0.413/Current/Microsoft.Common.props (74,3)". This is most likely a build authoring error. This subsequent import will be ignored. [/src/shared/cache/cache.csproj]
+17:26:42.767 | D | DockerPush           | #23 14.92 /src/shared/Message-Queue/RabbitMQ/RabbitMqOptions.cs(11,23): warning CS8618: Non-nullable property 'Host' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/src/shared/Message-Queue/Message-Queue.csproj]
+17:26:42.767 | D | DockerPush           | #23 14.92 /src/shared/Message-Queue/RabbitMQ/RabbitMqOptions.cs(13,23): warning CS8618: Non-nullable property 'Username' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/src/shared/Message-Queue/Message-Queue.csproj]
+17:26:42.768 | D | DockerPush           | #23 14.92 /src/shared/Message-Queue/RabbitMQ/RabbitMqOptions.cs(14,23): warning CS8618: Non-nullable property 'Password' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/src/shared/Message-Queue/Message-Queue.csproj]
+17:26:42.878 | D | DockerPush           | #23 14.95 /src/shared/Models/Auth0TokenResponse.cs(5,19): warning CS8618: Non-nullable property 'Access_Token' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/src/shared/Models/Models.csproj]
+17:26:42.878 | D | DockerPush           | #23 14.95 /src/shared/Models/Auth0TokenResponse.cs(6,19): warning CS8618: Non-nullable property 'Token_Type' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/src/shared/Models/Models.csproj]
+17:26:42.879 | D | DockerPush           | #23 15.03   Monitoring -> /src/shared/Monitoring/bin/Release/net8.0/Monitoring.dll
+17:26:43.116 | D | DockerPush           | #23 15.07   Message-Queue -> /src/shared/Message-Queue/bin/Release/net8.0/Message-Queue.dll
+17:26:43.117 | D | DockerPush           | #23 15.11   Models -> /src/shared/Models/bin/Release/net8.0/Models.dll
+17:26:43.206 | D | DockerPush           | #23 15.36   Database -> /src/shared/Database/bin/Release/net8.0/Database.dll
+17:26:44.782 | D | DockerPush           | #23 16.93   Utils -> /src/shared/Utils/bin/Release/net8.0/Utils.dll
+17:26:45.713 | D | DockerPush           | #23 17.87   cache -> /src/shared/cache/bin/Release/net8.0/cache.dll
+17:26:46.810 | D | DockerPush           | #23 18.96 /src/shared/Microservice/Middleware/DelegatedJwtHandler.cs(20,9): warning CS0618: 'ISystemClock' is obsolete: 'Use TimeProvider instead.' [/src/shared/Microservice/Microservice.csproj]
+17:26:46.810 | D | DockerPush           | #23 18.96 /src/shared/Microservice/Middleware/DelegatedJwtHandler.cs(23,9): warning CS0618: 'AuthenticationHandler<AuthenticationSchemeOptions>.AuthenticationHandler(IOptionsMonitor<AuthenticationSchemeOptions>, ILoggerFactory, UrlEncoder, ISystemClock)' is obsolete: 'ISystemClock is obsolete, use TimeProvider on AuthenticationSchemeOptions instead.' [/src/shared/Microservice/Microservice.csproj]
+17:26:46.810 | D | DockerPush           | #23 18.96 /src/shared/Microservice/Communications/Extensions/UserServiceGrpcClientExtensions.cs(17,33): warning CS8604: Possible null reference argument for parameter 'uriString' in 'Uri.Uri(string uriString)'. [/src/shared/Microservice/Microservice.csproj]
+17:26:46.811 | D | DockerPush           | #23 18.96 /src/shared/Microservice/Communications/Extensions/AuthServiceGrpcClientExtensions.cs(16,39): warning CS8604: Possible null reference argument for parameter 'uriString' in 'Uri.Uri(string uriString)'. [/src/shared/Microservice/Microservice.csproj]
+17:26:46.811 | D | DockerPush           | #23 18.96 /src/shared/Microservice/Communications/Extensions/AuthServiceGrpcClientExtensions.cs(21,33): warning CS8604: Possible null reference argument for parameter 'uriString' in 'Uri.Uri(string uriString)'. [/src/shared/Microservice/Microservice.csproj]
+17:26:46.918 | D | DockerPush           | #23 19.07   Microservice -> /src/shared/Microservice/bin/Release/net8.0/Microservice.dll
+17:26:47.553 | D | DockerPush           | #23 19.70 /src/shared/Services/JWT/JWTService.cs(31,67): warning CS8604: Possible null reference argument for parameter 's' in 'byte[] Encoding.GetBytes(string s)'. [/src/shared/Services/Services.csproj]
+17:26:47.688 | D | DockerPush           | #23 19.77 /src/shared/Auth0/Auth0/Auth0Service.cs(65,48): warning CS8604: Possible null reference argument for parameter 's' in 'byte[] Encoding.GetBytes(string s)'. [/src/shared/Auth0/Auth0.csproj]
+17:26:47.690 | D | DockerPush           | #23 19.77 /src/shared/Auth0/Auth0/Auth0Service.cs(93,31): warning CS8604: Possible null reference argument for parameter 'value' in 'void Dictionary<string, string>.Add(string key, string value)'. [/src/shared/Auth0/Auth0.csproj]
+17:26:47.690 | D | DockerPush           | #23 19.77 /src/shared/Auth0/Auth0/Auth0Service.cs(94,35): warning CS8604: Possible null reference argument for parameter 'value' in 'void Dictionary<string, string>.Add(string key, string value)'. [/src/shared/Auth0/Auth0.csproj]
+17:26:47.691 | D | DockerPush           | #23 19.77 /src/shared/Auth0/Auth0/Auth0Service.cs(95,30): warning CS8604: Possible null reference argument for parameter 'value' in 'void Dictionary<string, string>.Add(string key, string value)'. [/src/shared/Auth0/Auth0.csproj]
+17:26:47.691 | D | DockerPush           | #23 19.77 /src/shared/Auth0/Auth0/Auth0Service.cs(104,57): warning CS8604: Possible null reference argument for parameter 'data' in 'void ICacheService.SetData<string>(string key, string data)'. [/src/shared/Auth0/Auth0.csproj]
+17:26:47.692 | D | DockerPush           | #23 19.77 /src/shared/Auth0/Auth0/Auth0Service.cs(105,20): warning CS8603: Possible null reference return. [/src/shared/Auth0/Auth0.csproj]
+17:26:47.692 | D | DockerPush           | #23 19.84   Services -> /src/shared/Services/bin/Release/net8.0/Services.dll
+17:26:47.903 | D | DockerPush           | #23 19.90   Auth0 -> /src/shared/Auth0/bin/Release/net8.0/Auth0.dll
+17:26:49.345 | D | DockerPush           | #23 21.49 /src/services/AuthService/Models/Response/AuthLoginResponse.cs(5,23): warning CS8618: Non-nullable property 'AccessToken' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/src/services/AuthService/AuthService.csproj]
+17:26:49.346 | D | DockerPush           | #23 21.49 /src/services/AuthService/Models/Response/AuthLoginResponse.cs(6,23): warning CS8618: Non-nullable property 'UserId' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/src/services/AuthService/AuthService.csproj]
+17:26:49.347 | D | DockerPush           | #23 21.49 /src/services/AuthService/Models/Response/AuthLoginResponse.cs(7,23): warning CS8618: Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/src/services/AuthService/AuthService.csproj]
+17:26:49.348 | D | DockerPush           | #23 21.49 /src/services/AuthService/Models/Request/AuthLoginRequest.cs(8,23): warning CS8618: Non-nullable property 'Nickname' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/src/services/AuthService/AuthService.csproj]
+17:26:49.348 | D | DockerPush           | #23 21.49 /src/services/AuthService/Models/Request/AuthLoginRequest.cs(9,23): warning CS8618: Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/src/services/AuthService/AuthService.csproj]
+17:26:49.349 | D | DockerPush           | #23 21.49 /src/services/AuthService/Models/Request/AuthLoginRequest.cs(10,23): warning CS8618: Non-nullable property 'Picture' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/src/services/AuthService/AuthService.csproj]
+17:26:49.349 | D | DockerPush           | #23 21.49 /src/services/AuthService/Models/Request/AuthLoginRequest.cs(15,23): warning CS8618: Non-nullable property 'Email' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/src/services/AuthService/AuthService.csproj]
+17:26:49.502 | D | DockerPush           | #23 21.49 /src/services/AuthService/Models/Request/AuthLoginRequest.cs(20,23): warning CS8618: Non-nullable property 'Sub' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/src/services/AuthService/AuthService.csproj]
+17:26:49.503 | D | DockerPush           | #23 21.49 /src/services/AuthService/Services/AuthService.cs(51,30): warning CS0168: The variable 'ex' is declared but never used [/src/services/AuthService/AuthService.csproj]
+17:26:49.504 | D | DockerPush           | #23 21.49 /src/services/AuthService/Program.cs(51,80): warning CS8604: Possible null reference argument for parameter 's' in 'byte[] Encoding.GetBytes(string s)'. [/src/services/AuthService/AuthService.csproj]
+17:26:49.900 | D | DockerPush           | #23 22.05   AuthService -> /src/services/AuthService/bin/Release/net8.0/AuthService.dll
+17:26:50.159 | D | DockerPush           | #23 22.31   AuthService -> /app/publish/
+17:26:50.379 | D | DockerPush           | #23 DONE 22.5s
+17:26:50.602 | D | DockerPush           | 
+17:26:50.603 | D | DockerPush           | #24 [runtime 3/3] COPY --from=build /app/publish .
+17:26:50.618 | D | DockerPush           | #24 DONE 0.2s
+17:26:50.788 | D | DockerPush           | 
+17:26:50.788 | D | DockerPush           | #25 exporting to image
+17:26:50.789 | D | DockerPush           | #25 exporting layers
+17:26:51.497 | D | DockerPush           | #25 exporting layers 0.9s done
+17:26:51.651 | D | DockerPush           | #25 exporting manifest sha256:67c4027fbd7c15f4a8989aa9c3dc90d78bca72c2088dc2aed1e4cbe441dce717 0.0s done
+17:26:51.652 | D | DockerPush           | #25 exporting config sha256:d40f4646ee69c36a2f60d089561347b58ab8a4a7cc2caeff7c150a167d7bf7a8 0.0s done
+17:26:51.652 | D | DockerPush           | #25 exporting attestation manifest sha256:5bcd6025c58a0bdcbbc722b553d264a95118f489b0e23add6e06dd3072b71143 0.1s done
+17:26:51.653 | D | DockerPush           | #25 exporting manifest list sha256:832ff516d55f825364267439f888f5967e78c0a2842ac821c0a57ec384ab9d65
+17:26:51.852 | D | DockerPush           | #25 exporting manifest list sha256:832ff516d55f825364267439f888f5967e78c0a2842ac821c0a57ec384ab9d65 0.0s done
+17:26:51.853 | D | DockerPush           | #25 naming to educifyacr.azurecr.io/authservice:20250901 done
+17:26:51.854 | D | DockerPush           | #25 unpacking to educifyacr.azurecr.io/authservice:20250901
+17:26:51.854 | D | DockerPush           | #25 unpacking to educifyacr.azurecr.io/authservice:20250901 0.2s done
+17:26:52.045 | D | DockerPush           | #25 DONE 1.3s
+17:26:52.122 | D | DockerPush           | 
+17:26:52.123 | D | DockerPush           | View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/oggd1j05m7ny5un8z9z6jfsd1
+17:26:52.304 | I | DockerPush           | > "C:\Program Files\Docker\Docker\resources\bin\docker.exe" push educifyacr.azurecr.io/authservice:20250901
+17:26:52.305 | V | DockerPush           | @ D:\Test\Project\educify-backend
+17:26:53.029 | D | DockerPush           | The push refers to repository [educifyacr.azurecr.io/authservice]
+17:26:53.135 | D | DockerPush           | b1badc6e5066: Waiting
+17:26:53.135 | D | DockerPush           | 431704f32a13: Waiting
+17:26:53.135 | D | DockerPush           | d58a7b951b05: Waiting
+17:26:53.135 | D | DockerPush           | 8824f6aeff37: Waiting
+17:26:53.135 | D | DockerPush           | 15113326d880: Waiting
+17:26:53.136 | D | DockerPush           | 2b6f82574228: Waiting
+17:26:53.136 | D | DockerPush           | 5d5249dddca9: Waiting
+17:26:53.136 | D | DockerPush           | 22d869a4ec7b: Waiting
+17:26:53.136 | D | DockerPush           | 16bf5aa6abcc: Waiting
+17:26:53.236 | D | DockerPush           | 5d5249dddca9: Waiting
+17:26:53.236 | D | DockerPush           | 22d869a4ec7b: Waiting
+17:26:53.236 | D | DockerPush           | 16bf5aa6abcc: Waiting
+17:26:53.236 | D | DockerPush           | 2b6f82574228: Waiting
+17:26:53.236 | D | DockerPush           | d58a7b951b05: Waiting
+17:26:53.236 | D | DockerPush           | 8824f6aeff37: Waiting
+17:26:53.237 | D | DockerPush           | 15113326d880: Waiting
+17:26:53.237 | D | DockerPush           | b1badc6e5066: Waiting
+17:26:53.237 | D | DockerPush           | 431704f32a13: Waiting
+17:26:53.335 | D | DockerPush           | d58a7b951b05: Waiting
+17:26:53.335 | D | DockerPush           | 8824f6aeff37: Waiting
+17:26:53.335 | D | DockerPush           | 15113326d880: Waiting
+17:26:53.335 | D | DockerPush           | b1badc6e5066: Waiting
+17:26:53.335 | D | DockerPush           | 431704f32a13: Waiting
+17:26:53.336 | D | DockerPush           | 5d5249dddca9: Waiting
+17:26:53.336 | D | DockerPush           | 22d869a4ec7b: Waiting
+17:26:53.336 | D | DockerPush           | 16bf5aa6abcc: Waiting
+17:26:53.336 | D | DockerPush           | 2b6f82574228: Waiting
+17:26:53.435 | D | DockerPush           | 15113326d880: Waiting
+17:26:53.435 | D | DockerPush           | b1badc6e5066: Waiting
+17:26:53.435 | D | DockerPush           | 431704f32a13: Waiting
+17:26:53.435 | D | DockerPush           | d58a7b951b05: Waiting
+17:26:53.435 | D | DockerPush           | 8824f6aeff37: Waiting
+17:26:53.435 | D | DockerPush           | 16bf5aa6abcc: Waiting
+17:26:53.436 | D | DockerPush           | 2b6f82574228: Waiting
+17:26:53.436 | D | DockerPush           | 5d5249dddca9: Waiting
+17:26:53.436 | D | DockerPush           | 22d869a4ec7b: Waiting
+17:26:53.535 | D | DockerPush           | 5d5249dddca9: Waiting
+17:26:53.535 | D | DockerPush           | 22d869a4ec7b: Waiting
+17:26:53.535 | D | DockerPush           | 16bf5aa6abcc: Waiting
+17:26:53.536 | D | DockerPush           | 2b6f82574228: Waiting
+17:26:53.536 | D | DockerPush           | 431704f32a13: Waiting
+17:26:53.536 | D | DockerPush           | d58a7b951b05: Waiting
+17:26:53.537 | D | DockerPush           | 8824f6aeff37: Waiting
+17:26:53.537 | D | DockerPush           | 15113326d880: Waiting
+17:26:53.537 | D | DockerPush           | b1badc6e5066: Waiting
+17:26:53.634 | D | DockerPush           | 2b6f82574228: Waiting
+17:26:53.634 | D | DockerPush           | 5d5249dddca9: Waiting
+17:26:53.635 | D | DockerPush           | 16bf5aa6abcc: Waiting
+17:26:53.636 | D | DockerPush           | b1badc6e5066: Waiting
+17:26:53.636 | D | DockerPush           | 431704f32a13: Waiting
+17:26:53.636 | D | DockerPush           | d58a7b951b05: Waiting
+17:26:53.636 | D | DockerPush           | 8824f6aeff37: Waiting
+17:26:53.637 | D | DockerPush           | 15113326d880: Waiting
+17:26:53.735 | D | DockerPush           | 8824f6aeff37: Mounted from userservice
+17:26:53.735 | D | DockerPush           | 15113326d880: Waiting
+17:26:53.735 | D | DockerPush           | b1badc6e5066: Mounted from userservice
+17:26:53.735 | D | DockerPush           | 431704f32a13: Mounted from userservice
+17:26:53.736 | D | DockerPush           | d58a7b951b05: Mounted from userservice
+17:26:53.736 | D | DockerPush           | 16bf5aa6abcc: Mounted from userservice
+17:26:53.736 | D | DockerPush           | 2b6f82574228: Mounted from userservice
+17:26:53.835 | D | DockerPush           | 15113326d880: Mounted from userservice
+17:26:53.934 | D | DockerPush           | 5d5249dddca9: Pushed
+17:26:54.536 | D | DockerPush           | 22d869a4ec7b: Pushed
+17:26:55.371 | D | DockerPush           | 20250901: digest: sha256:832ff516d55f825364267439f888f5967e78c0a2842ac821c0a57ec384ab9d65 size: 856
+17:26:55.392 | I | DockerPush           | ✅ Successfully pushed educifyacr.azurecr.io/authservice:20250901 to ACR [Production]
+17:26:55.393 | V | DockerPush           | Telemetry.OnTargetSucceeded (0)
+17:26:55.394 | V | DockerPush           | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
+17:26:55.402 | V |                      | UpdateNotification.OnBuildFinished (10)
+17:26:55.402 | V |                      | SerializeBuildServerState.OnBuildFinished (0)
+17:26:55.402 | V |                      | EventInvoker.OnBuildFinished (-3.4028235E+38)
