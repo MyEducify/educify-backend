@@ -31,9 +31,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService", "services\Use
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth0", "shared\Auth0\Auth0.csproj", "{CD422EC0-8A4F-4EEA-B383-7E9C948B00B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice", "shared\Microservice\Microservice.csproj", "{AF68EACE-2CC6-42D3-BB07-E0E1B5AA4302}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{4B186777-5FC7-4D14-94C7-5AC4C1CEE0B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService", "services\UserService\UserService.csproj", "{F73D0717-FA5F-49BB-883A-4E08AB5E16C1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{02085879-A4A6-4C71-BEDB-4C9A00832E8E}"
+	ProjectSection(SolutionItems) = preProject
+		Dev.yaml = Dev.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,6 +106,7 @@ Global
 		{AF68EACE-2CC6-42D3-BB07-E0E1B5AA4302} = {F8547A21-79C1-4CC0-A3B6-952B310837A9}
 		{F73D0717-FA5F-49BB-883A-4E08AB5E16C1} = {4367BA98-856B-4C4D-AEBD-5870256E8F04}
 		{CD422EC0-8A4F-4EEA-B383-7E9C948B00B1} = {F8547A21-79C1-4CC0-A3B6-952B310837A9}
+		{02085879-A4A6-4C71-BEDB-4C9A00832E8E} = {4B186777-5FC7-4D14-94C7-5AC4C1CEE0B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C643EB26-56F6-4800-A75F-4CFEC19A6D39}

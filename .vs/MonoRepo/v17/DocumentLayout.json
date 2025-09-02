@@ -3,36 +3,20 @@
   "WorkspaceRootPath": "D:\\Test\\Project\\educify-backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F73D0717-FA5F-49BB-883A-4E08AB5E16C1}|services\\UserService\\UserService.csproj|d:\\test\\project\\educify-backend\\services\\userservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F73D0717-FA5F-49BB-883A-4E08AB5E16C1}|services\\UserService\\UserService.csproj|solutionrelative:services\\userservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|d:\\test\\project\\educify-backend\\services\\authservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|solutionrelative:services\\authservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{02085879-A4A6-4C71-BEDB-4C9A00832E8E}|NewFolder1{02085879-A4A6-4C71-BEDB-4C9A00832E8E}|D:\\Test\\Project\\educify-backend\\Dev.yaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{02085879-A4A6-4C71-BEDB-4C9A00832E8E}|NewFolder1{02085879-A4A6-4C71-BEDB-4C9A00832E8E}|solutionrelative:Dev.yaml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F2A628A-842A-4814-A700-381A798B2EB1}|build\\_build.csproj|d:\\test\\project\\educify-backend\\build\\build.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F2A628A-842A-4814-A700-381A798B2EB1}|build\\_build.csproj|solutionrelative:build\\build.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F73D0717-FA5F-49BB-883A-4E08AB5E16C1}|services\\UserService\\UserService.csproj|d:\\test\\project\\educify-backend\\services\\userservice\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{F73D0717-FA5F-49BB-883A-4E08AB5E16C1}|services\\UserService\\UserService.csproj|solutionrelative:services\\userservice\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|d:\\test\\project\\educify-backend\\services\\authservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|solutionrelative:services\\authservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|d:\\test\\project\\educify-backend\\services\\authservice\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|solutionrelative:services\\authservice\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|d:\\test\\project\\educify-backend\\services\\authservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|solutionrelative:services\\authservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|d:\\test\\project\\educify-backend\\services\\authservice\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{09EF48BD-BA7A-4E3D-AE20-EF56CB1784E7}|services\\AuthService\\AuthService.csproj|solutionrelative:services\\authservice\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F73D0717-FA5F-49BB-883A-4E08AB5E16C1}|services\\UserService\\UserService.csproj|d:\\test\\project\\educify-backend\\services\\userservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F73D0717-FA5F-49BB-883A-4E08AB5E16C1}|services\\UserService\\UserService.csproj|solutionrelative:services\\userservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F73D0717-FA5F-49BB-883A-4E08AB5E16C1}|services\\UserService\\UserService.csproj|d:\\test\\project\\educify-backend\\services\\userservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F73D0717-FA5F-49BB-883A-4E08AB5E16C1}|services\\UserService\\UserService.csproj|solutionrelative:services\\userservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,101 +34,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Dev.yaml",
+              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\Dev.yaml",
+              "RelativeDocumentMoniker": "Dev.yaml",
+              "ToolTip": "D:\\Test\\Project\\educify-backend\\Dev.yaml",
+              "RelativeToolTip": "Dev.yaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-09-02T08:11:39.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Build.cs",
               "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\build\\Build.cs",
               "RelativeDocumentMoniker": "build\\Build.cs",
               "ToolTip": "D:\\Test\\Project\\educify-backend\\build\\Build.cs",
               "RelativeToolTip": "build\\Build.cs",
-              "ViewState": "AgIAALUAAAAAAAAAAAAcwN8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAqwOcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T12:28:21.041Z"
+              "WhenOpened": "2025-08-28T12:28:21.041Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\appsettings.json",
               "RelativeDocumentMoniker": "services\\AuthService\\appsettings.json",
               "ToolTip": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\appsettings.json",
               "RelativeToolTip": "services\\AuthService\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-08-28T09:02:35.353Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "services\\AuthService\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "services\\AuthService\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T12:34:23.499Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\services\\UserService\\appsettings.json",
               "RelativeDocumentMoniker": "services\\UserService\\appsettings.json",
               "ToolTip": "D:\\Test\\Project\\educify-backend\\services\\UserService\\appsettings.json",
               "RelativeToolTip": "services\\UserService\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-27T11:57:37.638Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Dockerfile",
-              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\services\\UserService\\Dockerfile",
-              "RelativeDocumentMoniker": "services\\UserService\\Dockerfile",
-              "ToolTip": "D:\\Test\\Project\\educify-backend\\services\\UserService\\Dockerfile",
-              "RelativeToolTip": "services\\UserService\\Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-08-27T13:50:24.285Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\Program.cs",
-              "RelativeDocumentMoniker": "services\\AuthService\\Program.cs",
-              "ToolTip": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\Program.cs",
-              "RelativeToolTip": "services\\AuthService\\Program.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAcwF0AAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T12:21:22.841Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Dockerfile",
-              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\Dockerfile",
-              "RelativeDocumentMoniker": "services\\AuthService\\Dockerfile",
-              "ToolTip": "D:\\Test\\Project\\educify-backend\\services\\AuthService\\Dockerfile",
-              "RelativeToolTip": "services\\AuthService\\Dockerfile",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAwAYAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-08-27T13:47:37.197Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Test\\Project\\educify-backend\\services\\UserService\\Program.cs",
-              "RelativeDocumentMoniker": "services\\UserService\\Program.cs",
-              "ToolTip": "D:\\Test\\Project\\educify-backend\\services\\UserService\\Program.cs",
-              "RelativeToolTip": "services\\UserService\\Program.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAowDUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T12:20:13.493Z"
+              "WhenOpened": "2025-08-27T11:57:37.638Z"
             }
           ]
         }
