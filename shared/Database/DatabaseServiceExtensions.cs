@@ -12,7 +12,7 @@ namespace Database
         {
             var connectionString = configuration.GetConnectionString("ConnectionString");
 
-            services.AddDbContext<AppDbContext>(options =>
+            services.AddDbContext<AuthDbContext>(options =>
                 options.UseNpgsql(connectionString));
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));

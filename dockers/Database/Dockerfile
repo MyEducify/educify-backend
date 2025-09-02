@@ -1,0 +1,8 @@
+FROM postgres:16
+
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=adminadmin
+ENV POSTGRES_DB=postgres
+
+EXPOSE 5432
+

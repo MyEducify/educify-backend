@@ -26,8 +26,11 @@
       "enum": [
         "BuildAuthService",
         "BuildShared",
+        "BuildUserService",
         "Clean",
         "Compile",
+        "DockerBuild",
+        "DockerBuildAllServices",
         "GenerateEnv",
         "LogEnvironment",
         "Restore"
@@ -115,6 +118,10 @@
         "Env": {
           "type": "string",
           "description": "Target environment - dev, staging, production"
+        },
+        "Service": {
+          "type": "string",
+          "description": "Service name for Docker build (e.g., AuthService, UserService)"
         },
         "Solution": {
           "type": "string",
