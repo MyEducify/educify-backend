@@ -6,8 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Communications\GRPC\AuthServiceProtos\auth_service.proto" />
+    <None Remove="Communications\GRPC\UserServiceProtos\user.proto" />
+  </ItemGroup>
+
 	<ItemGroup>
-		<Protobuf Include="Communications/GRPC/user_service.proto" GrpcServices="Both" />
+		<Protobuf Include="Communications\GRPC\AuthServiceProtos\auth_service.proto" GrpcServices="Both" />
+		<Protobuf Include="Communications\GRPC\user_service.proto" GrpcServices="Both" />
+		<Protobuf Include="Communications\GRPC\UserServiceProtos\user.proto" GrpcServices="Both" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -15,6 +22,11 @@
 		<PackageReference Include="Google.Protobuf" Version="3.25.1" />
 		<PackageReference Include="Grpc.Net.ClientFactory" Version="2.71.0" />
 		<PackageReference Include="Grpc.Tools" Version="2.63.0" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.8" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\cache\cache.csproj" />
 	</ItemGroup>
 </Project>
