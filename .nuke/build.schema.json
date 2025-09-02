@@ -26,8 +26,11 @@
       "enum": [
         "BuildAuthService",
         "BuildShared",
+        "BuildUserService",
         "Clean",
         "Compile",
+        "DockerBuild",
+        "DockerBuildAllServices",
         "GenerateEnv",
         "LogEnvironment",
         "Restore"
@@ -104,6 +107,10 @@
   "allOf": [
     {
       "properties": {
+        "AcrName": {
+          "type": "string",
+          "description": "Azure Container Registry Name"
+        },
         "Configuration": {
           "type": "string",
           "description": "Build configuration - Debug or Release",
@@ -115,6 +122,10 @@
         "Env": {
           "type": "string",
           "description": "Target environment - dev, staging, production"
+        },
+        "Service": {
+          "type": "string",
+          "description": "Service name for Docker build (e.g., AuthService, UserService)"
         },
         "Solution": {
           "type": "string",

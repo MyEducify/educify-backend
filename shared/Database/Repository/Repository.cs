@@ -5,10 +5,10 @@ namespace Database.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected readonly AppDbContext _context;
+        protected readonly AuthDbContext _context;
         protected readonly DbSet<T> _dbSet;
 
-        public Repository(AppDbContext context)
+        public Repository(AuthDbContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();

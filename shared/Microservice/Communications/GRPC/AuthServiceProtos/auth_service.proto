@@ -1,0 +1,16 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Microservice.Communication.GRPC.AuthServiceProtos.Protos";
+
+service UserAuthGrpcService {
+    rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse);
+}
+
+message ValidateTokenRequest {
+    string token = 1;
+}
+
+message ValidateTokenResponse {
+    bool isValid = 1;
+    int32 expirySeconds = 2;
+}

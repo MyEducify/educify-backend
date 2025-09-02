@@ -21,6 +21,12 @@ class Build : NukeBuild
 
     [Parameter("Target environment - dev, staging, production")]
     readonly string Env = "dev";
+    [Parameter("Service name for Docker build (e.g., AuthService, UserService)")]
+    readonly string Service;
+    [Parameter("Azure Container Registry Name")]
+    readonly string AcrName;
+    [Parameter("Docker Image Tag")]
+    readonly string ImageTag = "latest";
 
     string DotNetEnvironment => Env.ToLower() switch
     {
@@ -35,6 +41,7 @@ class Build : NukeBuild
     AbsolutePath OutputDir => RootDirectory / "output" / Env;
 
     AbsolutePath AuthServiceProj => SourceDir / "AuthService" / "AuthService.csproj";
+    AbsolutePath UserServiceProj => SourceDir / "UserService" / "UserService.csproj";
     AbsolutePath DatabaseProj => SharedDir / "Database" / "Database.csproj";
     AbsolutePath UtilsProj => SharedDir / "Utils" / "Utils.csproj";
     AbsolutePath ModelsProj => SharedDir / "Models" / "Models.csproj";
@@ -43,6 +50,7 @@ class Build : NukeBuild
     AbsolutePath CacheProj => SharedDir / "cache" / "cache.csproj";
     AbsolutePath MessageQueueProj => SharedDir / "Message-Queue" / "Message-Queue.csproj";
     AbsolutePath MicroserviceProj => SharedDir / "Microservice" / "Microservice.csproj";
+    AbsolutePath Auth0Proj => SharedDir / "Auth0" / "Auth0.csproj";
 
     Target LogEnvironment => _ => _
         .Executes(() =>
@@ -110,6 +118,11 @@ class Build : NukeBuild
                 .SetProjectFile(MicroserviceProj)
                 .SetConfiguration(Configuration)
                 .EnableNoRestore());
+
+            DotNetBuild(s => s
+               .SetProjectFile(Auth0Proj)
+               .SetConfiguration(Configuration)
+               .EnableNoRestore());
         });
 
     Target BuildAuthService => _ => _
@@ -124,11 +137,23 @@ class Build : NukeBuild
                 .SetProcessEnvironmentVariable("ASPNETCORE_ENVIRONMENT", DotNetEnvironment));
         });
 
+    Target BuildUserService => _ => _
+      .DependsOn(BuildShared)
+      .Executes(() =>
+      {
+          DotNetBuild(s => s
+              .SetProjectFile(UserServiceProj)
+              .SetConfiguration(Configuration)
+              .EnableNoRestore()
+              .SetOutputDirectory(OutputDir)
+              .SetProcessEnvironmentVariable("ASPNETCORE_ENVIRONMENT", DotNetEnvironment));
+      });
+
     Target GenerateEnv => _ => _
     .Executes(() =>
     {
 
-        var services = new[] { "AuthService" };
+        var services = new[] { "AuthService", "UserService" };
         foreach (var serviceName in services)
         {
             var sourceRoot = RootDirectory / ".environments" / serviceName;
@@ -157,6 +182,153 @@ class Build : NukeBuild
 
     });
 
+    Target DockerBuild => _ => _
+    .Requires(() => Service)
+    .Executes(() =>
+    {
+        var sourceRoot = RootDirectory / ".environments" / Service;
+        var targetRoot = RootDirectory / "services" / Service;
+
+        var envMap = new Dictionary<string, string>
+        {
+            ["dev"] = "Development",
+            ["stage"] = "Staging",
+            ["prod"] = "Production"
+        };
+
+        if (!envMap.ContainsKey(Env.ToLower()))
+            Log.Information($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+
+        var suffix = envMap[Env.ToLower()];
+        var sourceFile = sourceRoot / Env.ToLower() / "appsettings.json";
+        var targetFile = targetRoot / $"appsettings.json";
+        if (!File.Exists(sourceFile))
+            Log.Information($"❌ Missing source: {sourceFile}");
+
+        File.Copy(sourceFile, targetFile, true);
+        Serilog.Log.Information($"✅ Copied: {targetFile}");
+
+        var dockerfilePath = SourceDir / Service / "Dockerfile";
+        if (!File.Exists(dockerfilePath))
+            throw new Exception($"❌ Dockerfile not found for service: {Service}");
+
+        Log.Information($"🐳 Building Docker image for service: {Service}");
+
+        DockerTasks.DockerBuild(s => s
+            .SetFile(dockerfilePath)
+            .SetPath(".")
+            .SetTag(Service.ToLower())
+            .SetNoCache(true));
+
+        Log.Information($"✅ Docker image built: {Service.ToLower()}");
+
+    });
+
+    Target DockerBuildAllServices => _ => _
+    .Executes(() =>
+        {
+            var services = new[] { "AuthService", "UserService" };
+            foreach (var service in services)
+            {
+                var sourceRoot = RootDirectory / ".environments" / service;
+                var targetRoot = RootDirectory / "services" / service;
+
+                var envMap = new Dictionary<string, string>
+                {
+                    ["dev"] = "Development",
+                    ["stage"] = "Staging",
+                    ["prod"] = "Production"
+                };
+
+                if (!envMap.ContainsKey(Env.ToLower()))
+                    Log.Information($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+
+                var suffix = envMap[Env.ToLower()];
+                var sourceFile = sourceRoot / Env.ToLower() / "appsettings.json";
+                var targetFile = targetRoot / $"appsettings.json";
+                if (!File.Exists(sourceFile))
+                    Log.Information($"❌ Missing source: {sourceFile}");
+
+                File.Copy(sourceFile, targetFile, true);
+                Serilog.Log.Information($"✅ Copied: {targetFile}");
+
+                var dockerfilePath = SourceDir / service / "Dockerfile";
+                if (!File.Exists(dockerfilePath))
+                {
+                    Log.Warning($"⚠️ Skipping {service}, Dockerfile not found.");
+                    continue;
+                }
+
+                Log.Information($"🐳 Building Docker image for: {service}");
+
+                DockerTasks.DockerBuild(s => s
+                    .SetFile(dockerfilePath)
+                    .SetPath(".")
+                    .SetTag(service.ToLower())
+                    .SetNoCache(true));
+            }
+        });
+
+    Target DockerPush => _ => _
+     .Requires(() => Service)
+     .Requires(() => Env)
+     .Requires(() => AcrName)    // e.g., myregistry.azurecr.io
+     .Requires(() => ImageTag)
+     .Executes(() =>
+     {
+         var lowerService = Service.ToLowerInvariant();
+         var lowerEnv = Env.ToLowerInvariant();
+
+         var envMap = new Dictionary<string, string>
+         {
+             ["dev"] = "Development",
+             ["stage"] = "Staging",
+             ["prod"] = "Production"
+         };
+
+         if (!envMap.ContainsKey(lowerEnv))
+             throw new Exception($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+
+         // Copy environment-specific appsettings.json
+         var sourceFile = RootDirectory / ".environments" / Service / lowerEnv / "appsettings.json";
+         var targetFile = RootDirectory / "services" / Service / "appsettings.json";
+
+         if (!File.Exists(sourceFile))
+             throw new Exception($"❌ Missing source config: {sourceFile}");
+
+         File.Copy(sourceFile, targetFile, true);
+         Serilog.Log.Information($"✅ Copied env config to {targetFile}");
+
+         // Build full image name for ACR
+         var imageName = $"{AcrName}/{lowerService}-{Env}:{ImageTag}";
+         var dockerfilePath = RootDirectory / "services" / Service / "Dockerfile";
+
+         if (!File.Exists(dockerfilePath))
+             throw new Exception($"⚠️ Dockerfile not found for {Service} at {dockerfilePath}");
+
+         // Login to Azure ACR
+         var acrLoginName = AcrName.Split('.')[0]; // e.g. "myregistry" from "myregistry.azurecr.io"
+         ProcessTasks.StartProcess("az", $"acr login --name {acrLoginName}")
+             .AssertZeroExitCode();
+
+         // Build image directly with full ACR path
+         DockerTasks.DockerBuild(s => s
+             .SetPath(".")
+             .SetFile(dockerfilePath)
+             .SetTag(imageName)
+             .SetNoCache(true)
+         );
+
+         // Push image to ACR
+         DockerTasks.DockerPush(s => s
+             .SetName(imageName)
+         );
+
+         Serilog.Log.Information($"✅ Successfully pushed {imageName} to ACR [{envMap[lowerEnv]}]");
+     });
+
+
+
     Target Compile => _ => _
-        .DependsOn(LogEnvironment, Clean, BuildAuthService);
+        .DependsOn(LogEnvironment, Clean, BuildAuthService, BuildUserService);
 }
