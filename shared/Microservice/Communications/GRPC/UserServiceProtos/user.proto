@@ -1,0 +1,25 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Microservice.Communication.GRPC.UserServiceProtos.Protos";
+
+package user;
+
+
+service UserGrpcService {
+  rpc CreateUser (CreateUserRequest) returns (CreateUserReply);
+}
+
+message CreateUserRequest {
+  string Auth0Id = 1;
+  string email = 2;
+  string fullName = 3;
+  string nickname = 4;
+  string pictureUrl = 5;
+  bool emailVerified = 6;
+}
+
+message CreateUserReply {
+  string userId = 1;
+  string fullName = 2;
+  string email = 3;
+}
