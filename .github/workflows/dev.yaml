@@ -14,4 +14,4 @@ jobs:
     - name: Listing Dir
       run: ls
     - name: Check dotnet
-      run: '[ "${{ secrets.DOTNET_VERSION }}" = "8.0" ] && echo "yes" || echo "no"'
+      run: '[ "${{ vars.ENV_TYPE }}" = "dev" ] && echo "yes" || echo "no"'
