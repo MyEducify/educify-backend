@@ -18,6 +18,6 @@ jobs:
       run: echo "Hello from Ci & CD startup program"
     - name: Listing Dir
       run: ls
-    - name: Check Vars  
+    - name: Check Vars
       run: echo ${{vars.TEST_VAR}}       
       
