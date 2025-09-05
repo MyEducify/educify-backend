@@ -11,8 +11,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env: 
-      env_var_one: ${{ vars.TEST_VAR }}
+    environment: EDU
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
