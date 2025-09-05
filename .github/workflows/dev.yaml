@@ -8,6 +8,7 @@ on:
 env:
   # Setting an environment variable with the value of a configuration variable
   env_var: ${{ vars.TEST_VAR }}
+  test_secr: ${{ secrets.TEST_SCE }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,5 +19,5 @@ jobs:
     - name: Listing Dir
       run: ls
     - name: Check Vars
-      run: echo ${{ vars.TEST_REPO_VAR }}
+      run: echo "$env.env_var $env.test_secr"
       
