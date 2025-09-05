@@ -5,13 +5,14 @@ on:
   pull_request:
     branches: [ "ci-cd-test" ]
 
-env:
-  # Setting an environment variable with the value of a configuration variable
-  env_var: ${{ vars.TEST_VAR }}
-  test_secr: ${{ secrets.TEST_SCE }}
+# env:
+#   # Setting an environment variable with the value of a configuration variable
+#   env_var: ${{ vars.TEST_VAR }}
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: 
+      env_var_one: ${{ vars.TEST_VAR }}
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
@@ -19,5 +20,5 @@ jobs:
     - name: Listing Dir
       run: ls
     - name: Check Vars
-      run: echo "$env.env_var"
+      run: echo "$env.env_var_one"
       
