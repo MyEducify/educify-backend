@@ -13,6 +13,6 @@ jobs:
       run: echo "Hello from Ci & CD startup program"
     - name: Listing Dir
       run: ls
-    - name: ${{ vars }}
-      run: ${{ vars }}
+    - name: Check Vars
+      run: ${{ vars.ENV_TYPE }}
       
