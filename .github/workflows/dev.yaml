@@ -20,5 +20,5 @@ jobs:
     - name: Listing Dir
       run: ls
     - name: Check Vars
-      run: echo ${{vars.TEST_VAR}}   
+      run: echo ${{vars.TEST_VAR}}     
       
