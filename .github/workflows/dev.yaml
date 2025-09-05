@@ -4,6 +4,10 @@ on:
     branches: [ "ci-cd-test" ]
   pull_request:
     branches: [ "ci-cd-test" ]
+
+env:
+  # Setting an environment variable with the value of a configuration variable
+  env_var: ${{ vars.TEST_VAR }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,5 +18,5 @@ jobs:
     - name: Listing Dir
       run: ls
     - name: Check Vars
-      run: "ENV_TYPE is: ${{ vars.ENV_TYPE }}"
+      run: "hello var $env_var"
       
