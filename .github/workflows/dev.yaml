@@ -20,5 +20,5 @@ jobs:
     - name: Listing Dir
       run: ls
     - name: Check Vars
-      run: node -e "console.log(process.env)" && echo ${{secrets.TEST_REPO}}
+      run: node -e "console.log(process.env)" && echo ${{vars.TEST_VAR}}
       
