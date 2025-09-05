@@ -18,5 +18,5 @@ jobs:
     - name: Listing Dir
       run: ls
     - name: Check Vars
-      run: echo "hello var $env_var"
+      run: echo ${{ vars.TEST_REPO_VAR }}
       
