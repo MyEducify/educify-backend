@@ -14,4 +14,4 @@ jobs:
     - name: Listing Dir
       run: ls
     - name: Check dotnet
-      run: dotnet
+      run: echo {{ vars.ENV_TYPE }} {{ secrets.DOTNET_VERSION }}
