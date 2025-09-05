@@ -14,5 +14,5 @@ jobs:
     - name: Listing Dir
       run: ls
     - name: Check Vars
-      run: echo ${{ vars.ENV_TYPE }}
+      run: echo "ENV_TYPE is: ${{ vars.ENV_TYPE }}"
       
