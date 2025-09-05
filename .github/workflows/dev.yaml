@@ -13,6 +13,6 @@ jobs:
       run: echo "Hello from Ci & CD startup program"
     - name: Listing Dir
       run: ls
-    - name: Check dotnet
+    - name: ${{ vars.ENV_TYPE }}
       run: '[ "${{ vars.ENV_TYPE }}" = "DEV" ] && echo "yes" || echo "no"'
       
