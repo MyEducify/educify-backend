@@ -5,9 +5,9 @@ on:
   pull_request:
     branches: [ "ci-cd-test" ]
 
-# env:
-#   # Setting an environment variable with the value of a configuration variable
-#   env_var: ${{ vars.TEST_VAR }}
+env:
+  # Setting an environment variable with the value of a configuration variable
+  env_var: ${{ vars.TEST_VAR }}
 jobs:
   build:
     runs-on: ubuntu-latest
