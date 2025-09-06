@@ -1,0 +1,33 @@
+name: Detect Changed Services
+
+on:
+  push:
+    branches: [ "ED-29" ]  # Runs only when commits are pushed to 'dev'
+  workflow_dispatch:    # Allow manual trigger
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Check if .NET 8 is installed, install if missing
+      - name: Install .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      # 3. Install NUKE global tool
+      - name: Install NUKE
+        run: dotnet tool install Nuke.GlobalTool --global
+
+      # 4. Check NUKE version (to verify install)
+      - name: NUKE version
+        run: nuke --version
+
+      # 5. Run PrintChangedServices target
+      - name: Print Changed Services
+        run: nuke PrintChangedServices
