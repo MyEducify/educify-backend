@@ -32,8 +32,8 @@ jobs:
         run: nuke --version
 
       # 5. Print Changed Services
-      # - name: Print Changed Services
-      #   run: nuke PrintChangedServices
+      - name: Print Changed Services
+        run: nuke PrintChangedServices
 
       # 6. Install Azure CLI
       - name: Install Azure CLI
