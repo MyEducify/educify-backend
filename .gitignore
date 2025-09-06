@@ -63,3 +63,5 @@ nunit-*.xml
 # Ignore Visual Studio folder
 .vs/
 .vs/MonoRepo/DesignTimeBuild/.dtbcache.v2
+.vs/MonoRepo/v17/DocumentLayout.json
+.vs/MonoRepo/v17/DocumentLayout.backup.json

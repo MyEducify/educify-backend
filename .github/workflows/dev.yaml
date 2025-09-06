@@ -13,6 +13,8 @@ jobs:
       # 1. Checkout repository
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  
 
       # 2. Install .NET 8 SDK
       - name: Install .NET 8 SDK
