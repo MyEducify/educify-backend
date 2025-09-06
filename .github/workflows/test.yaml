@@ -20,14 +20,14 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      # 3. Install NUKE global tool
       - name: Install NUKE
-        run: dotnet tool install Nuke.GlobalTool --global
+        run: |
+          dotnet tool install Nuke.GlobalTool --global
+          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
-      # 4. Check NUKE version (to verify install)
       - name: NUKE version
         run: nuke --version
 
-      # 5. Run PrintChangedServices target
       - name: Print Changed Services
         run: nuke PrintChangedServices
+
