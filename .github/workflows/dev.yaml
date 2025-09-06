@@ -31,10 +31,6 @@ jobs:
       - name: NUKE version
         run: nuke --version
 
-      # 5. Print Changed Services
-      - name: Print Changed Services
-        run: nuke PrintChangedServices
-
       # 6. Install Azure CLI
       - name: Install Azure CLI
         run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash

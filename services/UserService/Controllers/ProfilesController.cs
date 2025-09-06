@@ -21,7 +21,6 @@ namespace UserService.Controllers
 
             var profile = await _db.user.Where(p => p.Id == User_Id).FirstOrDefaultAsync();
             if (profile == null) return NotFound();
-
             return Ok(profile);
         }
     }

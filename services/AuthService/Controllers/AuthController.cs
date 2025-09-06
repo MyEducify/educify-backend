@@ -14,6 +14,7 @@ namespace AuthService.Controllers
         {
             _authService = authService;
             _logger = logger;
+
         }
 
         [HttpPost("login")]
@@ -21,7 +22,7 @@ namespace AuthService.Controllers
         {
             try
             {
-                if (!ModelState.IsValid) 
+                if (!ModelState.IsValid)
                 {
                     var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
                     throw new ApiException("Validation failed.", 400, "VALIDATION_ERROR", errors);
