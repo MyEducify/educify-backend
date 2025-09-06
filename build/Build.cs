@@ -9,6 +9,7 @@ using Nuke.Common.Tools.DotNet;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 using System.Collections.Generic;
 using Nuke.Common.Tools.Docker;
+using System.Linq;
 
 class Build : NukeBuild
 {
@@ -22,7 +23,7 @@ class Build : NukeBuild
     [Parameter("Target environment - dev, staging, production")]
     readonly string Env = "dev";
     [Parameter("Service name for Docker build (e.g., AuthService, UserService)")]
-    readonly string Service;
+    string Service;
     [Parameter("Azure Container Registry Name")]
     readonly string AcrName;
     [Parameter("Docker Image Tag")]
@@ -182,13 +183,185 @@ class Build : NukeBuild
 
     });
 
-    Target DockerBuild => _ => _
-    .Requires(() => Service)
-    .Executes(() =>
-    {
-        var sourceRoot = RootDirectory / ".environments" / Service;
-        var targetRoot = RootDirectory / "services" / Service;
+    //Target DockerBuild => _ => _
+    //.Requires(() => Service)
+    //.Executes(() =>
+    //{
+    //    var sourceRoot = RootDirectory / ".environments" / Service;
+    //    var targetRoot = RootDirectory / "services" / Service;
 
+    //    var envMap = new Dictionary<string, string>
+    //    {
+    //        ["dev"] = "Development",
+    //        ["stage"] = "Staging",
+    //        ["prod"] = "Production"
+    //    };
+
+    //    if (!envMap.ContainsKey(Env.ToLower()))
+    //        Log.Information($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+
+    //    var suffix = envMap[Env.ToLower()];
+    //    var sourceFile = sourceRoot / Env.ToLower() / "appsettings.json";
+    //    var targetFile = targetRoot / $"appsettings.json";
+    //    if (!File.Exists(sourceFile))
+    //        Log.Information($"❌ Missing source: {sourceFile}");
+
+    //    File.Copy(sourceFile, targetFile, true);
+    //    Serilog.Log.Information($"✅ Copied: {targetFile}");
+
+    //    var dockerfilePath = SourceDir / Service / "Dockerfile";
+    //    if (!File.Exists(dockerfilePath))
+    //        throw new Exception($"❌ Dockerfile not found for service: {Service}");
+
+    //    Log.Information($"🐳 Building Docker image for service: {Service}");
+
+    //    DockerTasks.DockerBuild(s => s
+    //        .SetFile(dockerfilePath)
+    //        .SetPath(".")
+    //        .SetTag(Service.ToLower())
+    //        .SetNoCache(true));
+
+    //    Log.Information($"✅ Docker image built: {Service.ToLower()}");
+
+    //});
+
+    //Target DockerBuildAllServices => _ => _
+    //.Executes(() =>
+    //    {
+    //        var services = new[] { "AuthService", "UserService" };
+    //        foreach (var service in services)
+    //        {
+    //            var sourceRoot = RootDirectory / ".environments" / service;
+    //            var targetRoot = RootDirectory / "services" / service;
+
+    //            var envMap = new Dictionary<string, string>
+    //            {
+    //                ["dev"] = "Development",
+    //                ["stage"] = "Staging",
+    //                ["prod"] = "Production"
+    //            };
+
+    //            if (!envMap.ContainsKey(Env.ToLower()))
+    //                Log.Information($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+
+    //            var suffix = envMap[Env.ToLower()];
+    //            var sourceFile = sourceRoot / Env.ToLower() / "appsettings.json";
+    //            var targetFile = targetRoot / $"appsettings.json";
+    //            if (!File.Exists(sourceFile))
+    //                Log.Information($"❌ Missing source: {sourceFile}");
+
+    //            File.Copy(sourceFile, targetFile, true);
+    //            Serilog.Log.Information($"✅ Copied: {targetFile}");
+
+    //            var dockerfilePath = SourceDir / service / "Dockerfile";
+    //            if (!File.Exists(dockerfilePath))
+    //            {
+    //                Log.Warning($"⚠️ Skipping {service}, Dockerfile not found.");
+    //                continue;
+    //            }
+
+    //            Log.Information($"🐳 Building Docker image for: {service}");
+
+    //            DockerTasks.DockerBuild(s => s
+    //                .SetFile(dockerfilePath)
+    //                .SetPath(".")
+    //                .SetTag(service.ToLower())
+    //                .SetNoCache(true));
+    //        }
+    //    });
+
+    //Target DockerPush => _ => _
+    // .Requires(() => Service)
+    // .Requires(() => Env)
+    // .Requires(() => AcrName)    // e.g., myregistry.azurecr.io
+    // .Requires(() => ImageTag)
+    // .Executes(() =>
+    // {
+    //     var lowerService = Service.ToLowerInvariant();
+    //     var lowerEnv = Env.ToLowerInvariant();
+
+    //     var envMap = new Dictionary<string, string>
+    //     {
+    //         ["dev"] = "Development",
+    //         ["stage"] = "Staging",
+    //         ["prod"] = "Production"
+    //     };
+
+    //     if (!envMap.ContainsKey(lowerEnv))
+    //         throw new Exception($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+
+    //     // Copy environment-specific appsettings.json
+    //     var sourceFile = RootDirectory / ".environments" / Service / lowerEnv / "appsettings.json";
+    //     var targetFile = RootDirectory / "services" / Service / "appsettings.json";
+
+    //     if (!File.Exists(sourceFile))
+    //         throw new Exception($"❌ Missing source config: {sourceFile}");
+
+    //     File.Copy(sourceFile, targetFile, true);
+    //     Serilog.Log.Information($"✅ Copied env config to {targetFile}");
+
+    //     // Build full image name for ACR
+    //     var imageName = $"{AcrName}/{lowerService}-{Env}:{ImageTag}";
+    //     var dockerfilePath = RootDirectory / "services" / Service / "Dockerfile";
+
+    //     if (!File.Exists(dockerfilePath))
+    //         throw new Exception($"⚠️ Dockerfile not found for {Service} at {dockerfilePath}");
+
+    //     // Login to Azure ACR
+    //     var acrLoginName = AcrName.Split('.')[0]; // e.g. "myregistry" from "myregistry.azurecr.io"
+    //     ProcessTasks.StartProcess("az", $"acr login --name {acrLoginName}")
+    //         .AssertZeroExitCode();
+
+    //     // Build image directly with full ACR path
+    //     DockerTasks.DockerBuild(s => s
+    //         .SetPath(".")
+    //         .SetFile(dockerfilePath)
+    //         .SetTag(imageName)
+    //         .SetNoCache(true)
+    //     );
+
+    //     // Push image to ACR
+    //     DockerTasks.DockerPush(s => s
+    //         .SetName(imageName)
+    //     );
+
+    //     Serilog.Log.Information($"✅ Successfully pushed {imageName} to ACR [{envMap[lowerEnv]}]");
+    // });
+
+    Target DockerBuild => _ => _
+        .Requires(() => Service)
+        .Executes(() =>
+        {
+            BuildDockerImage(Service, ImageTag);
+        });
+
+    Target DockerPush => _ => _
+        .Requires(() => Service)
+        .Requires(() => AcrName)
+        .Executes(() =>
+        {
+            BuildDockerImage(Service, ImageTag, pushToAcr: true);
+        });
+
+    Target DockerBuildChangedServices => _ => _
+        .Executes(() =>
+        {
+            var changed = DetectChangedServices();
+            if (changed.Length == 0)
+            {
+                Log.Warning("⚠️ No changed services detected");
+                return;
+            }
+
+            foreach (var svc in changed)
+            {
+                BuildDockerImage(svc, ImageTag);
+            }
+        });
+
+    void CopyEnvConfigFile(string serviceName)
+    {
+        var lowerEnv = Env.ToLowerInvariant();
         var envMap = new Dictionary<string, string>
         {
             ["dev"] = "Development",
@@ -196,138 +369,73 @@ class Build : NukeBuild
             ["prod"] = "Production"
         };
 
-        if (!envMap.ContainsKey(Env.ToLower()))
-            Log.Information($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+        if (!envMap.ContainsKey(lowerEnv))
+            throw new Exception($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
 
-        var suffix = envMap[Env.ToLower()];
-        var sourceFile = sourceRoot / Env.ToLower() / "appsettings.json";
-        var targetFile = targetRoot / $"appsettings.json";
+        var sourceFile = RootDirectory / ".environments" / serviceName / lowerEnv / "appsettings.json";
+        var targetFile = SourceDir / serviceName / "appsettings.json";
+
         if (!File.Exists(sourceFile))
-            Log.Information($"❌ Missing source: {sourceFile}");
+            throw new Exception($"❌ Missing source config: {sourceFile}");
 
         File.Copy(sourceFile, targetFile, true);
-        Serilog.Log.Information($"✅ Copied: {targetFile}");
+        Serilog.Log.Information($"✅ Copied {sourceFile} → {targetFile}");
+    }
 
-        var dockerfilePath = SourceDir / Service / "Dockerfile";
+    void BuildDockerImage(string serviceName, string imageTag, bool pushToAcr = false)
+    {
+        CopyEnvConfigFile(serviceName);
+
+        var dockerfilePath = SourceDir / serviceName / "Dockerfile";
         if (!File.Exists(dockerfilePath))
-            throw new Exception($"❌ Dockerfile not found for service: {Service}");
+            throw new Exception($"❌ Dockerfile not found for {serviceName}");
 
-        Log.Information($"🐳 Building Docker image for service: {Service}");
+        var lowerService = serviceName.ToLowerInvariant();
+        var tag = pushToAcr
+            ? $"{AcrName}/{lowerService}-{Env}:{imageTag}"
+            : $"{lowerService}:{imageTag}";
+
+        Log.Information($"🐳 Building {tag}");
 
         DockerTasks.DockerBuild(s => s
             .SetFile(dockerfilePath)
-            .SetPath(".")
-            .SetTag(Service.ToLower())
+            .SetPath(SourceDir / serviceName) // service folder as context
+            .SetTag(tag)
             .SetNoCache(true));
 
-        Log.Information($"✅ Docker image built: {Service.ToLower()}");
-
-    });
-
-    Target DockerBuildAllServices => _ => _
-    .Executes(() =>
+        if (pushToAcr)
         {
-            var services = new[] { "AuthService", "UserService" };
-            foreach (var service in services)
-            {
-                var sourceRoot = RootDirectory / ".environments" / service;
-                var targetRoot = RootDirectory / "services" / service;
+            var acrLoginName = AcrName.Split('.')[0];
+            ProcessTasks.StartProcess("az", $"acr login --name {acrLoginName}")
+                .AssertZeroExitCode();
 
-                var envMap = new Dictionary<string, string>
-                {
-                    ["dev"] = "Development",
-                    ["stage"] = "Staging",
-                    ["prod"] = "Production"
-                };
+            DockerTasks.DockerPush(s => s.SetName(tag));
+            Log.Information($"✅ Pushed {tag} to {AcrName}");
+        }
+    }
 
-                if (!envMap.ContainsKey(Env.ToLower()))
-                    Log.Information($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+    string[] DetectChangedServices()
+    {
+        var process = ProcessTasks.StartProcess("git", "diff --name-only origin/main");
+        process.AssertZeroExitCode();
 
-                var suffix = envMap[Env.ToLower()];
-                var sourceFile = sourceRoot / Env.ToLower() / "appsettings.json";
-                var targetFile = targetRoot / $"appsettings.json";
-                if (!File.Exists(sourceFile))
-                    Log.Information($"❌ Missing source: {sourceFile}");
+        var changedFiles = process.Output
+            .Select(o => o.Text)
+            .Where(s => !string.IsNullOrWhiteSpace(s))
+            .ToArray();
 
-                File.Copy(sourceFile, targetFile, true);
-                Serilog.Log.Information($"✅ Copied: {targetFile}");
+        var changedServices = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-                var dockerfilePath = SourceDir / service / "Dockerfile";
-                if (!File.Exists(dockerfilePath))
-                {
-                    Log.Warning($"⚠️ Skipping {service}, Dockerfile not found.");
-                    continue;
-                }
+        foreach (var path in changedFiles)
+        {
+            if (path.StartsWith("services/AuthService/", StringComparison.OrdinalIgnoreCase))
+                changedServices.Add("AuthService");
+            else if (path.StartsWith("services/UserService/", StringComparison.OrdinalIgnoreCase))
+                changedServices.Add("UserService");
+        }
 
-                Log.Information($"🐳 Building Docker image for: {service}");
-
-                DockerTasks.DockerBuild(s => s
-                    .SetFile(dockerfilePath)
-                    .SetPath(".")
-                    .SetTag(service.ToLower())
-                    .SetNoCache(true));
-            }
-        });
-
-    Target DockerPush => _ => _
-     .Requires(() => Service)
-     .Requires(() => Env)
-     .Requires(() => AcrName)    // e.g., myregistry.azurecr.io
-     .Requires(() => ImageTag)
-     .Executes(() =>
-     {
-         var lowerService = Service.ToLowerInvariant();
-         var lowerEnv = Env.ToLowerInvariant();
-
-         var envMap = new Dictionary<string, string>
-         {
-             ["dev"] = "Development",
-             ["stage"] = "Staging",
-             ["prod"] = "Production"
-         };
-
-         if (!envMap.ContainsKey(lowerEnv))
-             throw new Exception($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
-
-         // Copy environment-specific appsettings.json
-         var sourceFile = RootDirectory / ".environments" / Service / lowerEnv / "appsettings.json";
-         var targetFile = RootDirectory / "services" / Service / "appsettings.json";
-
-         if (!File.Exists(sourceFile))
-             throw new Exception($"❌ Missing source config: {sourceFile}");
-
-         File.Copy(sourceFile, targetFile, true);
-         Serilog.Log.Information($"✅ Copied env config to {targetFile}");
-
-         // Build full image name for ACR
-         var imageName = $"{AcrName}/{lowerService}-{Env}:{ImageTag}";
-         var dockerfilePath = RootDirectory / "services" / Service / "Dockerfile";
-
-         if (!File.Exists(dockerfilePath))
-             throw new Exception($"⚠️ Dockerfile not found for {Service} at {dockerfilePath}");
-
-         // Login to Azure ACR
-         var acrLoginName = AcrName.Split('.')[0]; // e.g. "myregistry" from "myregistry.azurecr.io"
-         ProcessTasks.StartProcess("az", $"acr login --name {acrLoginName}")
-             .AssertZeroExitCode();
-
-         // Build image directly with full ACR path
-         DockerTasks.DockerBuild(s => s
-             .SetPath(".")
-             .SetFile(dockerfilePath)
-             .SetTag(imageName)
-             .SetNoCache(true)
-         );
-
-         // Push image to ACR
-         DockerTasks.DockerPush(s => s
-             .SetName(imageName)
-         );
-
-         Serilog.Log.Information($"✅ Successfully pushed {imageName} to ACR [{envMap[lowerEnv]}]");
-     });
-
-
+        return changedServices.ToArray();
+    }
 
     Target Compile => _ => _
         .DependsOn(LogEnvironment, Clean, BuildAuthService, BuildUserService);

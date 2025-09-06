@@ -4,14 +4,24 @@ on:
     branches: [ "ci-cd-test" ]
   pull_request:
     branches: [ "ci-cd-test" ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+
+    # Install .NET 8 SDK
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Check .NET version
+      run: dotnet --version
+
     - name: Build the Docker image
-      run: echo "Hello from Ci & CD startup program"
+      run: echo "Hello from CI & CD startup program"
+
     - name: Listing Dir
       run: ls
-    - name: Check dotnet
-      run: dotnet

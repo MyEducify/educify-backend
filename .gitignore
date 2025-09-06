@@ -62,3 +62,16 @@ nunit-*.xml
 
 # Ignore Visual Studio folder
 .vs/
+.nuke/build.schema.json
+.nuke/build.schema.json
+.nuke/temp/build-attempt.log
+.nuke/temp/build.log
+.nuke/temp/build-attempt.log
+MonoRepo.sln
+.vs/ProjectEvaluation/monorepo.metadata.v9.bin
+.vs/MonoRepo/DesignTimeBuild/.dtbcache.v2
+.vs/MonoRepo/v17/.suo
+.vs/MonoRepo/v17/DocumentLayout.backup.json
+.vs/ProjectEvaluation/monorepo.metadata.v9.bin
+.vs/MonoRepo/v17/DocumentLayout.json
+.vs/ProjectEvaluation/monorepo.projects.v9.bin
