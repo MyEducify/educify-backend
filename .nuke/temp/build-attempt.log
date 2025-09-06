@@ -1,7 +1,2 @@
-d41d8cd98f00b204e9800998ecf8427e
-Restore
-BuildShared
-BuildUserService
-BuildAuthService
-Clean
-LogEnvironment
+9c0617331661839a682536264abad33b
+PrintChangedServices

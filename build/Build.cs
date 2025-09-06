@@ -297,9 +297,26 @@ class Build : NukeBuild
 
     string[] DetectChangedServices()
     {
-        var process = ProcessTasks.StartProcess("git", "diff --name-only HEAD~1 HEAD");
-        process.AssertZeroExitCode();
+        //var process = ProcessTasks.StartProcess("git", "diff --name-only HEAD~1 HEAD");
+        //process.AssertZeroExitCode();
 
+
+        string baseCommit;
+        var checkHead1 = ProcessTasks.StartProcess("git", "rev-parse HEAD~1", logOutput: false, logInvocation: false);
+        if (checkHead1.ExitCode == 0)
+        {
+            baseCommit = "HEAD~1";
+        }
+        else
+        {
+            // Fallback for CI shallow clones — compare with main branch
+            baseCommit = "origin/main";
+            // Ensure main is fetched
+            ProcessTasks.StartProcess("git", "fetch origin main --depth=1").AssertZeroExitCode();
+        }
+
+        var process = ProcessTasks.StartProcess("git", $"diff --name-only {baseCommit} HEAD");
+        process.AssertZeroExitCode();
         var changedFiles = process.Output
             .Select(o => o.Text)
             .Where(s => !string.IsNullOrWhiteSpace(s))
