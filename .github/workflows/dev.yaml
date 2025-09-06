@@ -14,10 +14,20 @@ jobs:
     environment: EDU
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: echo "Hello from Ci & CD startup program"
-    - name: Listing Dir
-      run: ls
-    - name: Check Vars
-      run: echo ${{vars.TEST_VAR}}       
+    # - name: Build the Docker image
+    #   run: echo "Hello from Ci & CD startup program"
+    # - name: Listing Dir
+    #   run: ls
+    # - name: Check Vars
+    #   run: echo ${{vars.TEST_VAR}}       
+    - uses: azure/login@v2
+      with:
+        creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBS_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
+
+    - name: Azure CLI script
+      uses: azure/cli@v2
+      with:
+        azcliversion: latest
+        inlineScript: |
+          az account show
       
