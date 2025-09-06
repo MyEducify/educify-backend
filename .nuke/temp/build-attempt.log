@@ -1,2 +1,7 @@
-4cf361280b39b20c58079796f3beac88
-DockerPush
+d41d8cd98f00b204e9800998ecf8427e
+Restore
+BuildShared
+BuildUserService
+BuildAuthService
+Clean
+LogEnvironment

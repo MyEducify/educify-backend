@@ -30,9 +30,12 @@
         "Clean",
         "Compile",
         "DockerBuild",
-        "DockerBuildAllServices",
+        "DockerBuildChangedServices",
+        "DockerPush",
         "GenerateEnv",
         "LogEnvironment",
+        "PrintChangedServices",
+        "PushImagesToACR",
         "Restore"
       ]
     },
@@ -122,6 +125,10 @@
         "Env": {
           "type": "string",
           "description": "Target environment - dev, staging, production"
+        },
+        "ImageTag": {
+          "type": "string",
+          "description": "Docker Image Tag"
         },
         "Service": {
           "type": "string",
