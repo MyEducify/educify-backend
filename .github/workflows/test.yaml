@@ -1,9 +1,9 @@
-name: Detect Changed Services
+name: CI-CD TO PUSH IMAGE ON ACR
 
 on:
   push:
-    branches: [ "ED-29" ]  # Runs only when commits are pushed to 'dev'
-  workflow_dispatch:    # Allow manual trigger
+    branches: [ "ci-cd-test" ] # Runs only when commits are pushed to 'ED-29'
+  workflow_dispatch:       # Allow manual trigger
 
 jobs:
   detect-changes:
@@ -14,20 +14,45 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Check if .NET 8 is installed, install if missing
+      # 2. Install .NET 8 SDK
       - name: Install .NET 8 SDK
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
 
+      # 3. Install NUKE
       - name: Install NUKE
         run: |
           dotnet tool install Nuke.GlobalTool --global
           echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
+      # 4. NUKE version
       - name: NUKE version
         run: nuke --version
 
+      # 5. Print Changed Services
       - name: Print Changed Services
         run: nuke PrintChangedServices
 
+      # 6. Install Azure CLI
+      - name: Install Azure CLI
+        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+      # 7. Azure login using secrets
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBS_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
+          enable-AzPSSession: true
+
+      # 8. Verify Azure account
+      - name: Azure CLI script
+        uses: azure/cli@v2
+        with: 
+          azcliversion: latest
+          inlineScript: |
+            az account show
+
+      # 9. Build and Push image to ACR
+      - name: Build and Push image
+        run: nuke PushImagesToACR --Env prod

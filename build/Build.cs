@@ -344,7 +344,21 @@ class Build : NukeBuild
         {
             BuildDockerImage(Service, ImageTag, pushToAcr: true);
         });
+    Target PushImagesToACR => _ => _
+        .Executes(() =>
+        {
+            var changed = DetectChangedServices();
+            if (changed.Length == 0)
+            {
+                Log.Warning("⚠️ No changed services detected");
+                return;
+            }
 
+            foreach (var svc in changed)
+            {
+                BuildDockerImage(svc, ImageTag, pushToAcr: true);
+            }
+        });
     Target DockerBuildChangedServices => _ => _
         .Executes(() =>
         {
