@@ -10,6 +10,8 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 using System.Collections.Generic;
 using Nuke.Common.Tools.Docker;
 using System.Linq;
+using System.Diagnostics;
+using YamlDotNet.Core.Tokens;
 
 class Build : NukeBuild
 {
@@ -385,7 +387,6 @@ class Build : NukeBuild
     void BuildDockerImage(string serviceName, string imageTag, bool pushToAcr = false)
     {
         CopyEnvConfigFile(serviceName);
-
         var dockerfilePath = SourceDir / serviceName / "Dockerfile";
         if (!File.Exists(dockerfilePath))
             throw new Exception($"❌ Dockerfile not found for {serviceName}");
@@ -396,13 +397,25 @@ class Build : NukeBuild
             : $"{lowerService}:{imageTag}";
 
         Log.Information($"🐳 Building {tag}");
+        if (pushToAcr)
+        {
+            DockerTasks.DockerBuild(s => s
+               .SetFile(dockerfilePath)
+               .SetPath(".") // service folder as context
+               .SetTag(tag)
+               .SetNoCache(true));
+        }
+        else
+        {
+            DockerTasks.DockerBuild(s => s
+              .SetFile(dockerfilePath)
+              .SetPath(".") // service folder as context
+              .SetTag(lowerService)
+              .SetNoCache(true));
+        }
 
-        DockerTasks.DockerBuild(s => s
-            .SetFile(dockerfilePath)
-            .SetPath(SourceDir / serviceName) // service folder as context
-            .SetTag(tag)
-            .SetNoCache(true));
 
+        Log.Information($"✅ Docker image built: {serviceName.ToLower()}");
         if (pushToAcr)
         {
             var acrLoginName = AcrName.Split('.')[0];
@@ -416,7 +429,7 @@ class Build : NukeBuild
 
     string[] DetectChangedServices()
     {
-        var process = ProcessTasks.StartProcess("git", "diff --name-only origin/main");
+        var process = ProcessTasks.StartProcess("git", "diff --name-only HEAD~1 HEAD");
         process.AssertZeroExitCode();
 
         var changedFiles = process.Output
@@ -425,7 +438,6 @@ class Build : NukeBuild
             .ToArray();
 
         var changedServices = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-
         foreach (var path in changedFiles)
         {
             if (path.StartsWith("services/AuthService/", StringComparison.OrdinalIgnoreCase))
@@ -433,9 +445,21 @@ class Build : NukeBuild
             else if (path.StartsWith("services/UserService/", StringComparison.OrdinalIgnoreCase))
                 changedServices.Add("UserService");
         }
+        Log.Information($"Changed Services: {string.Join(", ", changedServices)}");
 
         return changedServices.ToArray();
     }
+
+    Target PrintChangedServices => _ => _
+       .Executes(() =>
+       {
+           var changedServices = DetectChangedServices();
+
+           if (changedServices.Length == 0)
+               Log.Information("No services changed.");
+
+
+       });
 
     Target Compile => _ => _
         .DependsOn(LogEnvironment, Clean, BuildAuthService, BuildUserService);
