@@ -24,8 +24,7 @@ jobs:
       - name: Install NUKE
         run: |
           dotnet tool install Nuke.GlobalTool --global
-          export PATH="$PATH:$HOME/.dotnet/tools"
-          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
 
       # 4. NUKE version
       - name: NUKE version
