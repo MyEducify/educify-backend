@@ -62,3 +62,4 @@ nunit-*.xml
 
 # Ignore Visual Studio folder
 .vs/
+.vs/MonoRepo/DesignTimeBuild/.dtbcache.v2
