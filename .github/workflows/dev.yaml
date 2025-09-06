@@ -29,7 +29,7 @@ jobs:
 
       # 4. NUKE version
       - name: NUKE version
-        run: cd shared/cache && ls
+        run: cd shared && ls
 
       # 5. Print Changed Services
       - name: Print Changed Services
