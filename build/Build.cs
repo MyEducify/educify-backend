@@ -353,7 +353,6 @@ class Build : NukeBuild
                 Log.Warning("⚠️ No changed services detected");
                 return;
             }
-
             foreach (var svc in changed)
             {
                 BuildDockerImage(svc, ImageTag, pushToAcr: true);
