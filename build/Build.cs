@@ -256,28 +256,9 @@ class Build : NukeBuild
     }
     void CopyEnvConfigFilefromAZ(string serviceName)
     {
-        if (string.IsNullOrWhiteSpace(StorageAccountName))
-            throw new Exception("❌ StorageAccountName is required. Pass --StorageAccountName <name>.");
+        Serilog.Log.Information($"📥 Downloading .environments/{serviceName}/{Env}/appsettings.json from Azure Blob Storage...");
 
-        if (string.IsNullOrWhiteSpace(StorageAccountKey))
-            throw new Exception("❌ StorageAccountKey is required. Pass --StorageAccountKey <key>.");
-
-        var lowerEnv = Env?.ToLowerInvariant();
-        if (string.IsNullOrEmpty(lowerEnv))
-            throw new Exception("❌ Env parameter is required. Pass --Env <dev|stage|prod>.");
-
-        var envMap = new Dictionary<string, string>
-        {
-            ["dev"] = "Development",
-            ["stage"] = "Staging",
-            ["prod"] = "Production"
-        };
-
-        if (!envMap.ContainsKey(lowerEnv))
-            throw new Exception($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
-
-        var blobName = $".environments/{serviceName}/{lowerEnv}/appsettings.json";
-        var targetFile = SourceDir / serviceName / "appsettings.json";
+        var targetFile = RootDirectory / $"services/{serviceName}/appsettings.json";
 
         ProcessTasks.StartProcess(
             "az",
@@ -285,8 +266,9 @@ class Build : NukeBuild
             $"--account-name {StorageAccountName} " +
             $"--account-key {StorageAccountKey} " +
             $"--container-name envs " +
-            $"--name \"{blobName}\" " +
-            $"--file \"{targetFile}\""
+            $"--name \".environments/{serviceName}/{Env}/appsettings.json\" " +
+            $"--file \"{targetFile}\"",
+            logOutput: true
         ).AssertZeroExitCode();
     }
 
