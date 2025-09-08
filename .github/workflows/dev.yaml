@@ -54,4 +54,10 @@ jobs:
 
       # 9. Build and Push image to ACR
       - name: Build and Push image
-        run: nuke PushImagesToACR --Env prod --AcrName educifyacr.azurecr.io --StorageAccountName credentials --StorageAccountKey "${{ secrets.AZURE_STORAGE_KEY }}"
+        run: |
+        nuke PushImagesToACR \
+        --Env prod \
+        --AcrName educifyacr.azurecr.io \
+        --StorageAccountName credentials \
+        --StorageAccountKey "${{ secrets.STORAGE_ACCOUNT_KEY }}"
+        # run: nuke PushImagesToACR --Env prod --AcrName educifyacr.azurecr.io --StorageAccountName credentials --StorageAccountKey "${{ secrets.AZURE_STORAGE_KEY }}"

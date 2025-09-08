@@ -256,7 +256,15 @@ class Build : NukeBuild
     }
     void CopyEnvConfigFilefromAZ(string serviceName)
     {
-        var lowerEnv = Env.ToLowerInvariant();
+        if (string.IsNullOrWhiteSpace(StorageAccountName))
+            throw new Exception("❌ StorageAccountName is required. Pass --StorageAccountName <name>.");
+
+        if (string.IsNullOrWhiteSpace(StorageAccountKey))
+            throw new Exception("❌ StorageAccountKey is required. Pass --StorageAccountKey <key>.");
+
+        var lowerEnv = Env?.ToLowerInvariant();
+        if (string.IsNullOrEmpty(lowerEnv))
+            throw new Exception("❌ Env parameter is required. Pass --Env <dev|stage|prod>.");
 
         var envMap = new Dictionary<string, string>
         {
@@ -271,8 +279,6 @@ class Build : NukeBuild
         var blobName = $".environments/{serviceName}/{lowerEnv}/appsettings.json";
         var targetFile = SourceDir / serviceName / "appsettings.json";
 
-        Log.Information($"📥 Downloading {blobName} from Azure Blob Storage...");
-
         ProcessTasks.StartProcess(
             "az",
             $"storage blob download " +
@@ -282,9 +288,8 @@ class Build : NukeBuild
             $"--name \"{blobName}\" " +
             $"--file \"{targetFile}\""
         ).AssertZeroExitCode();
-
-        Log.Information($"✅ Downloaded config to {targetFile}");
     }
+
 
     void BuildDockerImage(string serviceName, string imageTag, bool pushToAcr = false)
     {
