@@ -32,7 +32,7 @@ class Build : NukeBuild
     readonly string ImageTag = DateTime.Now.ToString("yyyyMMdd-HHmmss");
     [Parameter("Azure Storage Account Name")]
     readonly string StorageAccountName;
-
+    readonly string StorageAccountKey;
 
     string DotNetEnvironment => Env.ToLower() switch
     {
@@ -256,36 +256,34 @@ class Build : NukeBuild
     }
     void CopyEnvConfigFilefromAZ(string serviceName)
     {
-        var lowerEnv = Env.ToLowerInvariant();
-        var envMap = new Dictionary<string, string>
+        var targetFile = Path.Combine(RootDirectory, $"services/{serviceName}/appsettings.json");
+
+        Log.Information($"📥 Downloading .environments/{serviceName}/{Env}/appsettings.json from Azure Blob Storage...");
+
+        var arguments = new List<string>
+    {
+        "storage", "blob", "download",
+        "--account-name", StorageAccountName,
+        "--container-name", "envs",
+        "--name", $".environments/{serviceName}/{Env}/appsettings.json",
+        "--file", targetFile
+    };
+
+        if (!string.IsNullOrWhiteSpace(StorageAccountKey))
         {
-            ["dev"] = "Development",
-            ["stage"] = "Staging",
-            ["prod"] = "Production"
-        };
+            Log.Information("🔑 Using Storage Account Key authentication...");
+            arguments.Add("--account-key");
+            arguments.Add(StorageAccountKey);
+        }
+        else
+        {
+            Log.Information("🔐 Using Azure RBAC login authentication...");
+            arguments.Add("--auth-mode");
+            arguments.Add("login");
+        }
 
-        if (!envMap.ContainsKey(lowerEnv))
-            throw new Exception($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
-
-        var blobPath = $".environments/{serviceName}/{lowerEnv}/appsettings.json";
-        var targetFile = SourceDir / serviceName / "appsettings.json";
-
-        // Ensure folder exists
-        Directory.CreateDirectory(Path.GetDirectoryName(targetFile));
-
-        Log.Information($"📥 Downloading {blobPath} from Azure Blob Storage...");
-
-        var result = ProcessTasks.StartProcess(
-              "az",
-              $"storage blob download --account-name {StorageAccountName} --container-name envs --name \".environments/{serviceName}/{Env}/appsettings.json\" --file \"{targetFile}\" --auth-mode login",
-              logOutput: true
-         );
+        var result = ProcessTasks.StartProcess("az", arguments, logOutput: true);
         result.AssertZeroExitCode();
-
-        if (!File.Exists(targetFile))
-            throw new Exception($"❌ Failed to download: {blobPath}");
-
-        Log.Information($"✅ Downloaded config to {targetFile}");
     }
 
     void BuildDockerImage(string serviceName, string imageTag, bool pushToAcr = false)
