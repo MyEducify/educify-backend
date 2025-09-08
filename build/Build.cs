@@ -256,6 +256,13 @@ class Build : NukeBuild
     }
     void CopyEnvConfigFilefromAZ(string serviceName)
     {
+        if (string.IsNullOrWhiteSpace(StorageAccountName))
+            throw new Exception("❌ StorageAccountName is null or empty.");
+        if (string.IsNullOrWhiteSpace(StorageAccountKey))
+            throw new Exception("❌ StorageAccountKey is null or empty.");
+        if (string.IsNullOrWhiteSpace(Env))
+            throw new Exception("❌ Env is null or empty.");
+
         Serilog.Log.Information($"📥 Downloading .environments/{serviceName}/{Env}/appsettings.json from Azure Blob Storage...");
 
         var targetFile = RootDirectory / $"services/{serviceName}/appsettings.json";
@@ -271,6 +278,7 @@ class Build : NukeBuild
             logOutput: true
         ).AssertZeroExitCode();
     }
+
 
 
     void BuildDockerImage(string serviceName, string imageTag, bool pushToAcr = false)
