@@ -275,15 +275,11 @@ class Build : NukeBuild
 
         Log.Information($"📥 Downloading {blobPath} from Azure Blob Storage...");
 
-        var result = ProcessTasks.StartProcess("az",
-            $"storage blob download " +
-            $"--account-name {AcrName} " + // or your actual storage account name
-            $"--container-name envs " +
-            $"--name \"{blobPath}\" " +
-            $"--file \"{targetFile}\" " +
-            $"--auth-mode login",
-            logOutput: true
-        );
+        var result = ProcessTasks.StartProcess(
+              "az",
+              $"storage blob download --account-name {StorageAccountName} --container-name envs --name \".environments/{serviceName}/{Env}/appsettings.json\" --file \"{targetFile}\" --auth-mode login",
+              logOutput: true
+         );
         result.AssertZeroExitCode();
 
         if (!File.Exists(targetFile))

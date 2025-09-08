@@ -30,8 +30,8 @@ jobs:
           echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
       # 4. NUKE version
-      - name: NUKE version
-        run: nuke --version
+      # - name: NUKE version
+      #   run: nuke --version
 
       # 6. Install Azure CLI
       - name: Install Azure CLI
