@@ -29,7 +29,7 @@ class Build : NukeBuild
     [Parameter("Azure Container Registry Name")]
     readonly string AcrName;
     [Parameter("Docker Image Tag")]
-    readonly string ImageTag = "latest";
+    readonly string ImageTag = DateTime.Now.ToString("yyyyMMdd-HHmmss");
 
     string DotNetEnvironment => Env.ToLower() switch
     {
@@ -251,10 +251,47 @@ class Build : NukeBuild
         File.Copy(sourceFile, targetFile, true);
         Serilog.Log.Information($"✅ Copied {sourceFile} → {targetFile}");
     }
+    void CopyEnvConfigFilefromAZ(string serviceName)
+    {
+        var lowerEnv = Env.ToLowerInvariant();
+        var envMap = new Dictionary<string, string>
+        {
+            ["dev"] = "Development",
+            ["stage"] = "Staging",
+            ["prod"] = "Production"
+        };
+
+        if (!envMap.ContainsKey(lowerEnv))
+            throw new Exception($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+
+        var blobPath = $".environments/{serviceName}/{lowerEnv}/appsettings.json";
+        var targetFile = SourceDir / serviceName / "appsettings.json";
+
+        // Ensure folder exists
+        Directory.CreateDirectory(Path.GetDirectoryName(targetFile));
+
+        Log.Information($"📥 Downloading {blobPath} from Azure Blob Storage...");
+
+        var result = ProcessTasks.StartProcess("az",
+            $"storage blob download " +
+            $"--account-name {AcrName} " + // or your actual storage account name
+            $"--container-name envs " +
+            $"--name \"{blobPath}\" " +
+            $"--file \"{targetFile}\" " +
+            $"--auth-mode login",
+            logOutput: true
+        );
+        result.AssertZeroExitCode();
+
+        if (!File.Exists(targetFile))
+            throw new Exception($"❌ Failed to download: {blobPath}");
+
+        Log.Information($"✅ Downloaded config to {targetFile}");
+    }
 
     void BuildDockerImage(string serviceName, string imageTag, bool pushToAcr = false)
     {
-        CopyEnvConfigFile(serviceName);
+        CopyEnvConfigFilefromAZ(serviceName);
         var dockerfilePath = SourceDir / serviceName / "Dockerfile";
         if (!File.Exists(dockerfilePath))
             throw new Exception($"❌ Dockerfile not found for {serviceName}");
