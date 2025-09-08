@@ -256,6 +256,9 @@ class Build : NukeBuild
     }
     void CopyEnvConfigFilefromAZ(string serviceName)
     {
+        Serilog.Log.Information($"✅ StorageAccountName {StorageAccountName}");
+        Serilog.Log.Information($"✅ StorageAccountKey {StorageAccountKey}");
+        Serilog.Log.Information($"✅ Env {Env}");
         if (string.IsNullOrWhiteSpace(StorageAccountName))
             throw new Exception("❌ StorageAccountName is null or empty.");
         if (string.IsNullOrWhiteSpace(StorageAccountKey))
