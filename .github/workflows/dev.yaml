@@ -54,4 +54,4 @@ jobs:
 
       # 9. Build and Push image to ACR
       - name: Build and Push image
-        run: nuke PushImagesToACR --Env prod
+        run: nuke PushImagesToACR --Env prod --AcrName educifyacr.azurecr.io --StorageAccountName credentials

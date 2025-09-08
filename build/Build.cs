@@ -30,6 +30,9 @@ class Build : NukeBuild
     readonly string AcrName;
     [Parameter("Docker Image Tag")]
     readonly string ImageTag = DateTime.Now.ToString("yyyyMMdd-HHmmss");
+    [Parameter("Azure Storage Account Name")]
+    readonly string StorageAccountName;
+
 
     string DotNetEnvironment => Env.ToLower() switch
     {
