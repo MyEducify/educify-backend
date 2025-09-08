@@ -32,8 +32,9 @@ class Build : NukeBuild
     readonly string ImageTag = DateTime.Now.ToString("yyyyMMdd-HHmmss");
     [Parameter("Azure Storage Account Name")]
     readonly string StorageAccountName;
-    readonly string StorageAccountKey;
 
+    [Parameter("Azure Storage Account Key")]
+    readonly string StorageAccountKey;
     string DotNetEnvironment => Env.ToLower() switch
     {
         "dev" => "Development",

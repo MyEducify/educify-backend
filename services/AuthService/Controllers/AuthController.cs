@@ -14,6 +14,7 @@ namespace AuthService.Controllers
         {
             _authService = authService;
             _logger = logger;
+
         }
 
         [HttpPost("login")]
