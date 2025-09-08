@@ -59,7 +59,7 @@ jobs:
           STORAGE_ACCOUNT_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
         run: |
           echo "STORAGE_ACCOUNT_NAME: $STORAGE_ACCOUNT_NAME"
-          echo "STORAGE_ACCOUNT_KEY: ${#STORAGE_ACCOUNT_KEY}" # prints length, not key
+          echo "STORAGE_ACCOUNT_KEY: $STORAGE_ACCOUNT_KEY"
           nuke PushImagesToACR \
             --Env prod \
             --AcrName educifyacr.azurecr.io --StorageAccountName credentials --StorageAccountKey "${{ secrets.AZURE_STORAGE_KEY }}"
