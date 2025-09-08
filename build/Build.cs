@@ -256,34 +256,34 @@ class Build : NukeBuild
     }
     void CopyEnvConfigFilefromAZ(string serviceName)
     {
-        var targetFile = Path.Combine(RootDirectory, $"services/{serviceName}/appsettings.json");
+        var lowerEnv = Env.ToLowerInvariant();
 
-        Log.Information($"📥 Downloading .environments/{serviceName}/{Env}/appsettings.json from Azure Blob Storage...");
-
-        var arguments = new List<string>
-    {
-        "storage", "blob", "download",
-        "--account-name", StorageAccountName,
-        "--container-name", "envs",
-        "--name", $".environments/{serviceName}/{Env}/appsettings.json",
-        "--file", targetFile
-    };
-
-        if (!string.IsNullOrWhiteSpace(StorageAccountKey))
+        var envMap = new Dictionary<string, string>
         {
-            Log.Information("🔑 Using Storage Account Key authentication...");
-            arguments.Add("--account-key");
-            arguments.Add(StorageAccountKey);
-        }
-        else
-        {
-            Log.Information("🔐 Using Azure RBAC login authentication...");
-            arguments.Add("--auth-mode");
-            arguments.Add("login");
-        }
+            ["dev"] = "Development",
+            ["stage"] = "Staging",
+            ["prod"] = "Production"
+        };
 
-        var result = ProcessTasks.StartProcess("az", arguments, logOutput: true);
-        result.AssertZeroExitCode();
+        if (!envMap.ContainsKey(lowerEnv))
+            throw new Exception($"❌ Invalid env '{Env}'. Allowed: dev, stage, prod");
+
+        var blobName = $".environments/{serviceName}/{lowerEnv}/appsettings.json";
+        var targetFile = SourceDir / serviceName / "appsettings.json";
+
+        Log.Information($"📥 Downloading {blobName} from Azure Blob Storage...");
+
+        ProcessTasks.StartProcess(
+            "az",
+            $"storage blob download " +
+            $"--account-name {StorageAccountName} " +
+            $"--account-key {StorageAccountKey} " +
+            $"--container-name envs " +
+            $"--name \"{blobName}\" " +
+            $"--file \"{targetFile}\""
+        ).AssertZeroExitCode();
+
+        Log.Information($"✅ Downloaded config to {targetFile}");
     }
 
     void BuildDockerImage(string serviceName, string imageTag, bool pushToAcr = false)
